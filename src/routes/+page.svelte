@@ -1,65 +1,76 @@
 <script>
+	// import Features from './home/Features.svelte';
+	import Hero from './home/Hero.svelte';
+	import Showcase from './home/Showcase.svelte';
+	// // import Try from './home/Try.svelte';
+	// import Deployment from './home/Deployment.svelte';
+	// // import Svelte from './home/Svelte.svelte';
+	import About from './home/About.svelte';
+	import Work from './home/Work.svelte';
+	import Skills from './home/Skills.svelte';
+	import './home/common.css';
 </script>
 
-<div class="center">
-	<div class="hero">
-		<h1>Hi, I'm Richard</h1>
-		<h2>I'm a developer</h2>
-	</div>
+<svelte:head>
+	<title>Richard • Web Developer</title>
+
+	<meta name="twitter:title" content="Richard" />
+	<meta name="twitter:description" content="Web developer" />
+	<meta name="description" content="Richard is the official Svelte application framework" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Richard • Web development, streamlined" />
+	<meta
+		property="og:description"
+		content="Richard is the official Svelte application framework"
+	/>
+	<meta property="og:url" content="https://litang.dev/" />
+	<meta
+		property="og:image"
+		content="https://raw.githubusercontent.com/sveltejs/branding/master/svelte-logo.svg"
+	/>
+<!-- 
+	{#if schema}
+		{@html schema}
+	{/if} -->
+</svelte:head>
+
+<div class="home">
+	<Hero />
+	<About />
+	<Work />
+	<Skills />
+	<!-- <Showcase /> -->
+	<footer>
+		<p>
+			This portfolio is <a target="_blank" rel="noreferrer" href="https://github.com/heisenberglar/portfolio"
+				>free and open source.</a
+			>
+		</p>
+	</footer>
 </div>
 
-<div>
-	<p>I want to build things that move us forward</p>
-	<p>Or not, it's fines</p>
-</div>
-
-<!-- Transition to expand on experience on scroll -->
-<div>
-	<div>
-		<p>I'm currently working as a full stack dev at a startup that aims to simplify healthcare. </p>
-	</div>
-	<div>
-		<p>Before becoming a developer, I actually worked in a power plant</p>
-	</div>
-</div>
-
-<!-- Transition to become compact again -->
-<div>
-	<p>I'm an engineer at heart, I enjoy solving real world problems with </p>
-	<p>I'm open to exploring and learning about new industries, but these currently excite me:</p>
-	<div>
-		<p>Sustainability</p>
-		<p>Healthcare</p>
-		<p>Education</p>
-	</div>
-</div>
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: 1em">
-	<div>
-		<h2>Keyed</h2>
-	</div>
-</div>
-
-<div>
-	<p>Show technologies here</p>
-	<div>
-		<p>Professional</p>
-	</div>
-	<div>
-		<p>Amateur</p>
-	</div>
-</div>
-		
 <style>
-	.center {
-		margin: auto;
-		width: 50%;
+	footer {
+		margin: 2rem auto;
+		padding: 1em var(--sk-page-padding-side);
+		text-align: center;
+		background: var(--sk-back-2);
 	}
 
-	.hero {
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
+	footer p {
+		max-width: 20em;
+		margin: 0 auto;
 	}
 
+	footer p a {
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	@media (min-width: 680px) {
+		footer p {
+			max-width: none;
+		}
+	}
 </style>
