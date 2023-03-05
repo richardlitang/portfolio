@@ -20,16 +20,13 @@
 
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Richard • Web development, streamlined" />
-	<meta
-		property="og:description"
-		content="Richard is the official Svelte application framework"
-	/>
+	<meta property="og:description" content="Richard is the official Svelte application framework" />
 	<meta property="og:url" content="https://litang.dev/" />
 	<meta
 		property="og:image"
 		content="https://raw.githubusercontent.com/sveltejs/branding/master/svelte-logo.svg"
 	/>
-<!-- 
+	<!-- 
 	{#if schema}
 		{@html schema}
 	{/if} -->
@@ -43,8 +40,10 @@
 	<!-- <Showcase /> -->
 	<footer>
 		<p>
-			This portfolio is <a target="_blank" rel="noreferrer" href="https://github.com/heisenberglar/portfolio"
-				>free and open source.</a
+			This portfolio is <a
+				target="_blank"
+				rel="noreferrer"
+				href="https://github.com/heisenberglar/portfolio">free and open source.</a
 			>
 		</p>
 	</footer>

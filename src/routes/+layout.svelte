@@ -1,5 +1,4 @@
 <script>
-	
 </script>
 
 <main id="main">
@@ -87,5 +86,4 @@
 			z-index: 9999 !important;
 		}
 	}
-
 </style>

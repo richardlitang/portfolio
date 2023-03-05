@@ -15,6 +15,7 @@
 		</div>
 	</div>
 </section>
+
 <style>
 	.hero {
 		max-width: 100vw;
@@ -35,15 +36,15 @@
 		position: relative;
 		/* padding: 8rem ; */
 	}
-	
+
 	.hero-contents {
 		position: relative;
 		padding: 5vh 2vw;
-		top:  calc(var(--font-h1) * 2);
+		top: calc(var(--font-h1) * 2);
 		margin: 0 auto;
 		padding-bottom: 10rem;
 	}
-	
+
 	.hero-text {
 		margin: 0 auto;
 	}
@@ -56,22 +57,21 @@
 
 	.hero-name {
 		margin: 0 auto;
-		line-height: 1.0;
+		line-height: 1;
 		font-size: 12.5vw;
 		justify-content: center;
 	}
 
 	.hero-title {
-		line-height: 1.0;
+		line-height: 1;
 		font-size: var(--font-h4);
 		justify-content: center;
 	}
 
-	
 	@media (min-width: 800px) {
 		.hero-name {
 			font-size: 10vw;
-		}	
+		}
 	}
 
 	.hero-text h1 {

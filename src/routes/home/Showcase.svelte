@@ -18,18 +18,18 @@
 </script>
 
 <!-- <Section --background="var(--background-2)"> -->
-	<h2>showcase</h2>
+<h2>showcase</h2>
 
-	<div class="showcase">
-		{#each showcase as { url, image }}
-			<a href="https://{url}" target="_blank" rel="noreferrer">
-				<img src={image} alt="" />
-				<span>{url}</span>
-			</a>
-		{/each}
-	</div>
+<div class="showcase">
+	{#each showcase as { url, image }}
+		<a href="https://{url}" target="_blank" rel="noreferrer">
+			<img src={image} alt="" />
+			<span>{url}</span>
+		</a>
+	{/each}
+</div>
+
 <!-- </Section> -->
-
 <style>
 	h2 {
 		color: white;

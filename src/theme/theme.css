@@ -1,73 +1,73 @@
 :root {
-  --text_0: hsl(0, 0%, 95%);
-  --text_1: hsl(0, 0%, 10%);
-  --text_2: hsl(0, 0%, 20%);
+	--text_0: hsl(0, 0%, 95%);
+	--text_1: hsl(0, 0%, 10%);
+	--text_2: hsl(0, 0%, 20%);
 
-  --bg_0: hsl(0, 0%, 100%);
-  --bg_1: hsl(330, 10%, 95%);
-  --bg_2: hsl(40, 20%, 90%);
+	--bg_0: hsl(0, 0%, 100%);
+	--bg_1: hsl(330, 10%, 95%);
+	--bg_2: hsl(40, 20%, 90%);
 
-  --primary: #8E38FF;
-  --secondary: #52e9d0;
-  --highlight: hsl(253, 80%, 55%);
-  --primary_3: #dfb948;
-  --primary_4: #ff9d9d;
-  --error: #d52424;
+	--primary: #8e38ff;
+	--secondary: #52e9d0;
+	--highlight: hsl(253, 80%, 55%);
+	--primary_3: #dfb948;
+	--primary_4: #ff9d9d;
+	--error: #d52424;
 
-  --spacer-xs: 0.5rem;
-  --spacer-sm: 1.0rem;
-  --spacer-md: 1.75rem;
-  --spacer-lg: 2.75rem;
-  --spacer-xl: 4.0rem;
-  --spacer-2xl: 5.75rem;
+	--spacer-xs: 0.5rem;
+	--spacer-sm: 1rem;
+	--spacer-md: 1.75rem;
+	--spacer-lg: 2.75rem;
+	--spacer-xl: 4rem;
+	--spacer-2xl: 5.75rem;
 
-  /* Min-width 800px */
-  --font-xs: calc(0.4vw + 0.45rem);
-  --font-sm: calc(0.65vw + 0.45rem);
-  --font-md: calc(0.90vw + 0.45rem);
-  --font-lg: calc(1.20vw + 0.45rem);
-  --font-xl: calc(1.65vw + 0.45rem);
-  --font-2xl: calc(2.0vw + 0.45rem);
-  --font-h1: calc(3.5vw + 0.75rem);
-  --font-h2: calc(3.0vw + 0.75rem);
-  --font-h3: calc(2.5vw + 0.75rem);
-  --font-h4: calc(2.0vw + 0.75rem);
+	/* Min-width 800px */
+	--font-xs: calc(0.4vw + 0.45rem);
+	--font-sm: calc(0.65vw + 0.45rem);
+	--font-md: calc(0.9vw + 0.45rem);
+	--font-lg: calc(1.2vw + 0.45rem);
+	--font-xl: calc(1.65vw + 0.45rem);
+	--font-2xl: calc(2vw + 0.45rem);
+	--font-h1: calc(3.5vw + 0.75rem);
+	--font-h2: calc(3vw + 0.75rem);
+	--font-h3: calc(2.5vw + 0.75rem);
+	--font-h4: calc(2vw + 0.75rem);
 }
 
 body {
-  background-color: var(--bg_0);
-  color: var(--text_1);
+	background-color: var(--bg_0);
+	color: var(--text_1);
 
-  font-family: 'IBM Plex Sans', sans-serif;
-  line-height: 1.5;
-  font-weight: 300;
-  letter-spacing: 0.02em; 
+	font-family: 'IBM Plex Sans', sans-serif;
+	line-height: 1.5;
+	font-weight: 300;
+	letter-spacing: 0.02em;
 
-  width: 100vw;
-  max-width: 100%;
-  overflow-x: hidden;
+	width: 100vw;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--highlight);
-  color: var(--text_0);
+	background: var(--highlight);
+	color: var(--text_0);
 }
 ::-moz-selection {
-  background: var(--highlight);
-  color: var(--text_0);
+	background: var(--highlight);
+	color: var(--text_0);
 }
 
 svg {
-  stroke: currentColor;
-  stroke-width: 1;
-  fill: none;
-  stroke-linejoin: round;
+	stroke: currentColor;
+	stroke-width: 1;
+	fill: none;
+	stroke-linejoin: round;
 }
 
 .position-absolute {
-  position: absolute;
+	position: absolute;
 }
 
 span {
-  display: flex;
+	display: flex;
 }
