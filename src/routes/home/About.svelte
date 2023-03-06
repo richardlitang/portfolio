@@ -2,9 +2,10 @@
 	// import Section from '@sveltejs/site-kit/components/Section.svelte';
 	import profile from '$lib/components/images/profile.jpg';
 	import viewport from '../../lib/utils/useViewportAction';
+	import Section from '$lib/components/Section.svelte';
 </script>
 
-<section class="about">
+<Section>
 	<div class="flex">
 		<div class="flex-item">
 			<p>
@@ -20,12 +21,13 @@
 			</p>
 		</div>
 	</div>
-</section>
+</Section>
 
 <style>
 	.about {
 		max-width: none;
 		margin: 0 auto;
+		/* font-weight: 100; */
 	}
 
 	.flex {
@@ -40,7 +42,7 @@
 
 	.flex-item p {
 		font-size: var(--font-md);
-		max-width: 70vw;
+		max-width: 30em;
 	}
 
 	img {

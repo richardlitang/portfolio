@@ -1,77 +1,121 @@
 <script>
 	// import Section from '@sveltejs/site-kit/components/Section.svelte';
-	import cloudflare from './logos/cloudflare.svg';
-	import html5 from './logos/html5.svg';
-	import netlify from './logos/netlify.svg';
+	import typescript from './logos/typescript.svg';
+	import graphql from './logos/graphql.svg';
+	import react from './logos/react.svg';
+	import mongodb from './logos/mongodb.svg';
+	import nextjs from './logos/nextjs.svg';
+	import docker from './logos/docker.svg';
+	import jest from './logos/jest.svg';
+	import material from './logos/material.svg';
+	import svelte from './logos/svelte.svg';
 	import node from './logos/node.svg';
-	import vercel from './logos/vercel.svg';
+	import wordpress from './logos/wordpress.svg';
+	import Section from '$lib/components/Section.svelte';
 </script>
 
-<div class="skills" style="--columns: 3">
-	<p class="skills-title">Technologies I've learned</p>
-	<p class="title">Professional</p>
-	<div class="skills-professional">
-		<a
-			target="_blank"
-			rel="noreferrer"
-			href="https://github.com/sveltejs/kit/tree/master/packages/adapter-static"
-			class="invert"
-		>
-			<img src={html5} alt="" />
-			<span><span class="large">Static</span> HTML</span>
-		</a>
-		<a
-			target="_blank"
-			rel="noreferrer"
-			href="https://github.com/sveltejs/kit/tree/master/packages/adapter-node"
-			class="invert"
-		>
-			<img src={node} alt="" />
-			<span>Node.js</span>
-		</a>
-		<a
-			target="_blank"
-			rel="noreferrer"
-			href="https://vercel.com/templates/svelte/sveltekit-boilerplate"
-			class="invert invert-hover"
-		>
-			<img src={vercel} alt="" style="transform: translate(0,-0.2rem)" />
-			<span>Vercel</span>
-		</a>
-		<a
-			target="_blank"
-			rel="noreferrer"
-			href="https://github.com/sveltejs/kit/tree/master/packages/adapter-netlify"
-		>
-			<img src={netlify} alt="" />
-			<span>Netlify</span>
-		</a>
-		<a
-			target="_blank"
-			rel="noreferrer"
-			href="https://github.com/sveltejs/kit/tree/master/packages/adapter-cloudflare"
-		>
-			<img src={cloudflare} alt="" />
-			<span>Cloudflare</span>
-		</a>
+<Section>
+	<div class="skills" style="--columns: 3">
+		<p class="skills-title">Technologies I've learned</p>
+		<p class="skills-level">Professional</p>
+		<div class="skills-professional">
+			<a
+				rel="noreferrer"
+				href="https://github.com/sveltejs/kit/tree/master/packages/adapter-static"
+			>
+				<img src={typescript} alt="" />
+				<span class="skills-name">TypeScript</span>
+			</a>
+			<a
+				rel="noreferrer"
+				href="https://vercel.com/templates/svelte/sveltekit-boilerplate"
+				class="invert invert-hover"
+			>
+				<img src={react} alt="" style="transform: translate(0,-0.2rem)" />
+				<span class="skills-name">React</span>
+			</a>
+			<a
+				rel="noreferrer"
+				href="https://vercel.com/templates/svelte/sveltekit-boilerplate"
+				class="invert invert-hover"
+			>
+				<img src={nextjs} alt="" style="transform: translate(0,-0.2rem)" />
+				<span class="skills-name">Next.js</span>
+			</a>
+			<a
+				rel="noreferrer"
+				href="https://github.com/sveltejs/kit/tree/master/packages/adapter-netlify"
+			>
+				<img src={material} alt="" />
+				<span class="skills-name">MaterialUI</span>
+			</a>
+			<a rel="noreferrer" href="https://github.com/sveltejs/kit/tree/master/packages/adapter-node">
+				<img src={graphql} alt="" />
+				<span class="skills-name">GraphQL</span>
+			</a>
+			<a
+				rel="noreferrer"
+				href="https://github.com/sveltejs/kit/tree/master/packages/adapter-netlify"
+			>
+				<img src={node} alt="" />
+				<span class="skills-name">Node.js</span>
+			</a>
+			<a
+				rel="noreferrer"
+				href="https://github.com/sveltejs/kit/tree/master/packages/adapter-cloudflare"
+			>
+				<img src={mongodb} alt="" />
+				<span class="skills-name">MongoDB</span>
+			</a>
+		</div>
+		<p class="skills-level">Amateur</p>
+		<div class="skills-professional">
+			<a
+				rel="noreferrer"
+				href="https://vercel.com/templates/svelte/sveltekit-boilerplate"
+				class="invert invert-hover"
+			>
+				<img src={jest} alt="" style="transform: translate(0,-0.2rem)" />
+				<span class="skills-name">Next.js</span>
+			</a>
+			<a rel="noreferrer" href="https://github.com/sveltejs/kit/tree/master/packages/adapter-node">
+				<img src={docker} alt="" />
+				<span class="skills-name">GraphQL</span>
+			</a>
+			<a
+				rel="noreferrer"
+				href="https://github.com/sveltejs/kit/tree/master/packages/adapter-netlify"
+			>
+				<img src={svelte} alt="" />
+				<span class="skills-name">Node.js</span>
+			</a>
+			<a
+				rel="noreferrer"
+				href="https://github.com/sveltejs/kit/tree/master/packages/adapter-cloudflare"
+			>
+				<img src={wordpress} alt="" />
+				<span class="skills-name">MongoDB</span>
+			</a>
+		</div>
 	</div>
-</div>
+</Section>
 
 <style>
 	.skills {
-		margin: 3vmin auto;
-		margin-bottom: var(--spacer-lg);
+		height: 100%;
 	}
 
 	.skills-title {
 		font-size: var(--font-h2);
 		text-align: center;
+		font-family: var(--font--heading);
 	}
 
-	.title {
+	.skills-level {
 		text-align: center;
-		font-size: var(--font-lg);
-		margin: var(--spacer-md) auto;
+		font-size: var(--font-xl);
+		font-family: var(--font--heading);
+		margin: var(--spacer-xl) auto;
 	}
 
 	.skills div {
@@ -90,8 +134,7 @@
 	}
 
 	.skills a span {
-		font-size: var(--sk-text-xs);
-		color: var(--sk-text-3);
+		font-size: var(--font-md);
 		text-align: center;
 	}
 
@@ -147,7 +190,7 @@
 		margin-top: 0;
 	}
 
-	.large {
+	/* .large {
 		display: none;
 	}
 
@@ -155,7 +198,7 @@
 		.large {
 			display: initial;
 		}
-	}
+	} */
 
 	@media (min-width: 900px) {
 		.blurb {

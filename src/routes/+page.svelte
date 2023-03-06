@@ -1,7 +1,7 @@
 <script>
 	// import Features from './home/Features.svelte';
 	import Hero from './home/Hero.svelte';
-	import Showcase from './home/Showcase.svelte';
+	import Projects from './home/Projects.svelte';
 	// // import Try from './home/Try.svelte';
 	// import Deployment from './home/Deployment.svelte';
 	// // import Svelte from './home/Svelte.svelte';
@@ -36,40 +36,15 @@
 	<Hero />
 	<About />
 	<Work />
+	<Projects />
 	<Skills />
-	<!-- <Showcase /> -->
-	<footer>
-		<p>
-			This portfolio is <a
-				target="_blank"
-				rel="noreferrer"
-				href="https://github.com/heisenberglar/portfolio">free and open source.</a
-			>
-		</p>
-	</footer>
 </div>
 
 <style>
-	footer {
-		margin: 2rem auto;
-		padding: 1em var(--sk-page-padding-side);
-		text-align: center;
-		background: var(--sk-back-2);
-	}
-
-	footer p {
-		max-width: 20em;
-		margin: 0 auto;
-	}
-
-	footer p a {
-		color: inherit;
-		text-decoration: underline;
-	}
-
-	@media (min-width: 680px) {
-		footer p {
-			max-width: none;
-		}
+	.home {
+		background-color: var(--bg_0);
+		border-bottom-left-radius: 2rem;
+		border-bottom-right-radius: 2rem;
+		box-shadow: 0px 6px var(--bg_2);
 	}
 </style>

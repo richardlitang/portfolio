@@ -1,15 +1,53 @@
 <script>
+	import '@fontsource/italiana';
+	import '@fontsource/cormorant';
+	import '@fontsource/poppins';
+	import '@fontsource/raleway';
 </script>
 
 <main id="main">
 	<slot />
+	<footer>
+		<p>
+			This portfolio is <a
+				target="_blank"
+				rel="noreferrer"
+				href="https://github.com/heisenberglar/portfolio">free and open source.</a
+			>
+		</p>
+	</footer>
 </main>
 
 <style>
 	main {
-		position: relative;
 		margin: 0 auto;
 		overflow: hidden;
+		background-color: var(--bg_1);
+	}
+
+	slot {
+		background-color: blue;
+	}
+	footer {
+		text-align: center;
+		font-size: var(--font-md);
+		display: block;
+		padding: 2rem 1rem;
+	}
+
+	footer p {
+		max-width: 20em;
+	}
+
+	footer p a {
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	@media (min-width: 680px) {
+		footer p {
+			max-width: none;
+		}
 	}
 
 	.small {

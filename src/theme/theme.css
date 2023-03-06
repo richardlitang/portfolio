@@ -21,6 +21,13 @@
 	--spacer-xl: 4rem;
 	--spacer-2xl: 5.75rem;
 
+	--border-md: 2rem;
+	--border-sm: 1rem;
+
+	--font--title: Cormorant, serif;
+	--font--heading: Italiana, serif;
+	--font--body: Raleway, sans-serif;
+
 	/* Min-width 800px */
 	--font-xs: calc(0.4vw + 0.45rem);
 	--font-sm: calc(0.65vw + 0.45rem);
@@ -38,9 +45,9 @@ body {
 	background-color: var(--bg_0);
 	color: var(--text_1);
 
-	font-family: 'IBM Plex Sans', sans-serif;
+	font-family: var(--font--body);
+	font-size: var(--font-md);
 	line-height: 1.5;
-	font-weight: 300;
 	letter-spacing: 0.02em;
 
 	width: 100vw;
@@ -70,4 +77,19 @@ svg {
 
 span {
 	display: flex;
+}
+
+button {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 4px 6px var(--bg_2);
+
+	font-family: var(--font--body);
+	border: none;
+	border-radius: 0.4rem;
+	font-weight: 700;
+	margin: 1rem;
+	padding: 0.75rem 1.25rem;
 }

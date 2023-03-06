@@ -21,6 +21,9 @@
 		max-width: 100vw;
 		min-height: calc(var(--font-h1) * 12);
 		background: var(--bg_1);
+		border-bottom-left-radius: 2rem;
+		border-bottom-right-radius: 2rem;
+		box-shadow: 0px 6px var(--bg_2);
 		/* background: radial-gradient(
 				34.14% 72.25% at 47.58% 31.75%,
 				hsla(209, 100%, 95%, 0.52) 0%,
@@ -43,6 +46,7 @@
 		top: calc(var(--font-h1) * 2);
 		margin: 0 auto;
 		padding-bottom: 10rem;
+		font-family: var(--font--title);
 	}
 
 	.hero-text {
@@ -56,6 +60,7 @@
 	}
 
 	.hero-name {
+		font-family: var(--font--heading);
 		margin: 0 auto;
 		line-height: 1;
 		font-size: 12.5vw;
@@ -85,7 +90,6 @@
 
 	.hero .tagline {
 		font-size: var(--font-h1);
-		font-weight: 300;
 		line-height: 1.1;
 	}
 
