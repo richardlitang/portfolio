@@ -1,17 +1,23 @@
 <script>
-	// import { base } from '$app/paths';
-	// import logotype from './svelte-kit-logotype.svg';
-	// import background from './svelte-kit-machine.webp?w=1440;960&format=avif;webp;png&picture';
+	import viewport from '../../lib/utils/useViewportAction';
+	import typewriter from '$lib/utils/typewriter';
+
+	let tagline = 'I build things for the web';
+	$: showText = false;
 </script>
 
 <section class="hero">
 	<div class="hero-contents">
-		<div class="hero-text">
-			<!-- <img alt="SvelteKit logotype" width="400" height="50" class="logotype" src={logotype} /> -->
+		<div class="hero-text" use:viewport on:enterViewport={() => (showText = true)}>
 			<span class="hero-intro">Hi, it's</span>
 			<span class="hero-name">Richard</span>
-			<!-- <span class="hero-title">a web developer</span> -->
-			<span class="hero-title">I build things for the web</span>
+			<div class="hero-tagline">
+				{#if showText}
+					<p transition:typewriter={{ speed: 1 }}>
+						{tagline}
+					</p>
+				{/if}
+			</div>
 		</div>
 	</div>
 </section>
@@ -67,10 +73,45 @@
 		justify-content: center;
 	}
 
-	.hero-title {
-		line-height: 1;
+	.hero-tagline {
+		display: grid;
+		place-items: center;
+	}
+	.hero-tagline p {
+		text-align: center;
 		font-size: var(--font-h4);
-		justify-content: center;
+		line-height: 1.2;
+		margin: 0 auto;
+		/* overflow: hidden;
+		white-space: nowrap;
+		width: 0;
+		animation: typing 5s steps(40, end) forwards, blinking 1s forwards; */
+		animation: blinking 4s 1;
+	}
+
+	.hero-tagline-letter {
+		white-space: pre;
+	}
+
+	@keyframes typing {
+		0% {
+			width: 100%;
+		}
+		100% {
+			width: 0%;
+		}
+	}
+
+	@keyframes blinking {
+		0% {
+			border-right: transparent;
+		}
+		50% {
+			border-right: 2px solid black;
+		}
+		100% {
+			border-right: transparent;
+		}
 	}
 
 	@media (min-width: 800px) {

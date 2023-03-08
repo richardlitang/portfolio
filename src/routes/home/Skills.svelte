@@ -14,7 +14,7 @@
 	import Section from '$lib/components/Section.svelte';
 </script>
 
-<Section>
+<Section --padding="10rem">
 	<div class="skills" style="--columns: 3">
 		<p class="skills-title">Technologies I've learned</p>
 		<p class="skills-level">Professional</p>

@@ -38,7 +38,7 @@
 	const doubledProjects = [...projects, ...projects];
 </script>
 
-<Section --bgColor="var(--bg_1)">
+<Section --bgColor="var(--bg_1)" --padding="8rem">
 	<p class="projects-title">Projects I've made</p>
 	<div class="projects-contents">
 		{#each doubledProjects as { url, image, title, description }}
@@ -55,15 +55,17 @@
 
 <style>
 	.projects-contents {
-		--max-size: 15rem;
-		--gap: calc(1.5vw + 0.5rem);
+		--max-size: 12rem;
+		--gap: calc(1.5vw + 1rem);
 		gap: var(--gap);
 		display: flex;
-		margin-bottom: calc(3vh + 2rem);
-		padding: 1rem;
 		text-align: center;
-		animation: move-card 30s linear infinite;
+		animation: move-card 20s linear infinite;
 		display: flex;
+	}
+
+	.projects-contents:hover {
+		animation-play-state: paused;
 	}
 
 	@keyframes move-card {
@@ -80,18 +82,19 @@
 		line-height: 2;
 		font-size: var(--font-h2);
 		font-family: var(--font--heading);
+		margin-bottom: 4rem;
 	}
 
 	a {
 		overflow: hidden;
 		display: flex;
 		overflow: hidden;
-		aspect-ratio: 16/12;
+		aspect-ratio: 16/9;
 		border-radius: var(--font-md);
 		box-shadow: 4px 6px var(--bg_2);
-		margin: var(--spacer-lg) auto;
 		max-width: var(--max-size);
 		max-height: var(--max-size);
+		animation-play-state: paused;
 	}
 
 	span {

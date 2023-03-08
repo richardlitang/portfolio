@@ -2,51 +2,47 @@
 	// import Section from '@sveltejs/site-kit/components/Section.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import arrowright from '$lib/icons/arrowright.svg';
-	let activeButtonIndex = 0;
+	let current = 'Dashlabs.ai';
+
+	const dashlabsTasks = [
+		'Built a patient duplicate-catching system that saved resources and enhanced user experience',
+		'Made the prototype for our queue management system to improve client processes',
+		"Worked on implementing the company's updated auth policy to our team's modules",
+		'Developed custom scripts for migration and cleansing of data stored in MongoDB'
+	];
+
+	const thpalTasks = [
+		'Operated a steam power plant and all its auxiliaries without a single emergency shutdown event in 3+ years',
+		'Troubleshot and prevented major equipment and system failures',
+		'Mentored new control room operators and contributed to our process documentation to improve knowledge base',
+		'Started as a field engineer conducting operation checklists and diagnosing equipment failures'
+	];
+
+	$: tasks = current === 'Dashlabs.ai' ? dashlabsTasks : thpalTasks;
 </script>
 
-<Section>
+<Section --padding="2rem">
+	<!-- <p class="work-title">Where I've worked</p> -->
 	<div class="work">
-		<p class="work-title">Where I've worked</p>
-		<div class="work-box">
+		<div>
 			<div class="work-tabs">
-				<button>Dashlabs.ai</button>
-				<button>THPAL</button>
+				<button
+					class={current === 'Dashlabs.ai' ? 'selected' : ''}
+					on:click={() => (current = 'Dashlabs.ai')}>Dashlabs.ai</button
+				>
+				<button class={current === 'THPAL' ? 'selected' : ''} on:click={() => (current = 'THPAL')}
+					>THPAL</button
+				>
 			</div>
+		</div>
+		<div class="work-box">
 			<div class="work-details">
-				<p>
+				{#each tasks as task}
 					<span>
 						<img src={arrowright} alt="" />
-						Built a patient duplicate-catching system that saved resources and enhanced user experience
+						{task}
 					</span>
-					<span
-						><img src={arrowright} alt="" />
-						Made the prototype for our queue management system to improve client processes</span
-					>
-					<span
-						><img src={arrowright} alt="" />
-						Worked on implementing the company's updated auth policy to our team's modules
-					</span>
-					<span
-						><img src={arrowright} alt="" />
-						Developed custom scripts for migration and cleansing of data stored in MongoDB
-					</span>
-				</p>
-				<!-- <p>
-					<span>
-						Operated a steam power plant and all its auxiliaries without a single emergency shutdown
-						event in 3+ years
-					</span>
-					<span> Troubleshot and prevented major equipment and system failures </span>
-					<span>
-						Mentored new control room operators and contributed to our process documentation to
-						improve knowledge base
-					</span>
-					<span>
-						Started as a field engineer conducting operation checklists and diagnosing equipment
-						failures
-					</span>
-				</p> -->
+				{/each}
 			</div>
 		</div>
 	</div>
@@ -56,32 +52,52 @@
 	.work {
 		max-width: fit-content;
 		border-radius: 0.5rem;
-		background: var(--bg_2);
 		padding: calc(2.5vw + 1rem);
-		margin: 3rem auto;
+		margin: 0 auto;
+		margin-bottom: 8rem;
 	}
 
 	.work-box {
-		justify-content: center;
 		display: flex;
 		flex-flow: column;
-		max-width: 40em;
+		justify-content: center;
+		background: var(--bg_2);
+		line-height: 2;
+		padding: calc(4vw + 1rem) calc(2vw + 0.25rem);
+		border-radius: calc(0.5vw + 0.25rem);
+		border-top-left-radius: 0;
+		max-width: 35em;
+		min-height: 40vh;
 		margin: 0 auto;
+		box-shadow: 0px 6px var(--bg_3);
 	}
 
 	button {
 		box-shadow: none;
-		min-width: 10em;
+		min-width: calc(1vw + 7rem);
+		font-size: var(--font-md);
+		margin: 0;
+		border-right: solid 2px var(--bg_2);
+		border-radius: 0;
+		border-top-right-radius: calc(0.25vw + 0.25rem);
+		border-top-left-radius: calc(0.25vw + 0.1rem);
 	}
+
+	.selected {
+		background-color: var(--bg_2);
+	}
+
+	.hidden {
+		visibility: hidden;
+	}
+
 	.work-tabs {
 		display: flex;
 		flex-flow: row;
-		margin: 0 auto;
 	}
 
 	.work-title {
 		text-align: center;
-		line-height: 2;
 		font-size: var(--font-h2);
 		font-family: var(--font--heading);
 	}
@@ -95,7 +111,7 @@
 		width: var(--size);
 		height: var(--size);
 		object-fit: contain;
-		margin-top: calc(var(--size) / 3);
+		margin-top: calc(var(--size) / 1.75);
 		margin-right: var(--size);
 	}
 
@@ -115,9 +131,6 @@
 		.work-box {
 			gap: 1rem;
 			flex-flow: row;
-		}
-		.work-tabs {
-			flex-flow: column;
 		}
 		img {
 			max-width: 8rem;

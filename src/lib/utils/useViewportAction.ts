@@ -1,3 +1,5 @@
+// https://svelte.dev/repl/c6a402704224403f96a3db56c2f48dfc?version=3.55.1
+
 let intersectionObserver: IntersectionObserver;
 
 function ensureIntersectionObserver() {
