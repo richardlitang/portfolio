@@ -9,6 +9,7 @@
 	import Work from './home/Work.svelte';
 	import Skills from './home/Skills.svelte';
 	import './home/common.css';
+	import Contact from './home/Contact.svelte';
 </script>
 
 <svelte:head>
@@ -38,6 +39,7 @@
 	<Work />
 	<Projects />
 	<Skills />
+	<Contact />
 </div>
 
 <style>
@@ -45,6 +47,5 @@
 		background-color: var(--bg_0);
 		border-bottom-left-radius: 2rem;
 		border-bottom-right-radius: 2rem;
-		box-shadow: 0px 6px var(--bg_2);
 	}
 </style>

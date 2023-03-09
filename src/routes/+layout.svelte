@@ -6,6 +6,9 @@
 </script>
 
 <main id="main">
+	<nav>
+		<p class="logo">rj</p>
+	</nav>
 	<slot />
 	<footer>
 		<p>
@@ -25,14 +28,27 @@
 		background-color: var(--bg_1);
 	}
 
-	slot {
-		background-color: blue;
+	p {
+		font-family: var(--font--heading);
+		font-size: var(--font-lg);
+		line-height: 1;
 	}
+
+	nav {
+		background-color: var(--bg_1);
+	}
+
+	.logo {
+		padding: calc(1vw + 0.25rem) calc(2vw + 1rem);
+		z-index: -5;
+	}
+
 	footer {
 		text-align: center;
 		font-size: var(--font-md);
 		display: block;
 		padding: 2rem 1rem;
+		color: var(--bg_2);
 	}
 
 	footer p {
@@ -71,27 +87,6 @@
 		.small {
 			display: none;
 		}
-
-		.large {
-			display: inline;
-		}
-
-		.separator {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			background: none;
-			height: 100%;
-			margin: 0;
-			border: none;
-			text-align: center;
-		}
-
-		.separator::before {
-			content: '•';
-			margin: 0 0.3rem;
-			color: #ccc;
-		}
 	}
 
 	@media (min-width: 960px) {
@@ -104,24 +99,5 @@
 
 	:global(body) {
 		font-size: 1.6rem !important;
-	}
-
-	li {
-		display: flex;
-		align-items: center;
-	}
-
-	/* :global(.examples-container, .repl-outer, .tutorial-outer) {
-		height: calc(100vh - var(--sk-nav-height)) !important;
-	}
-
-	:global(.toggle) {
-		bottom: 0 !important;
-	} */
-
-	@media (max-width: 830px) {
-		:global(aside) {
-			z-index: 9999 !important;
-		}
 	}
 </style>

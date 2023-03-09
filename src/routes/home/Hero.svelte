@@ -1,9 +1,20 @@
 <script>
 	import viewport from '../../lib/utils/useViewportAction';
 	import typewriter from '$lib/utils/typewriter';
+	import mongodb from './logos/mongodb.svg';
+	import github from '$lib/icons/github.svg';
+	import linkedin from '$lib/icons/linkedin.svg';
+	import vertical from '$lib/icons/vertical.svg';
+	import { fade } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
+	import { onMount } from 'svelte';
+	import Socials from '$lib/components/Socials.svelte';
 
 	let tagline = 'I build things for the web';
 	$: showText = false;
+
+	let ready = false;
+	onMount(() => (ready = true));
 </script>
 
 <section class="hero">
@@ -20,6 +31,14 @@
 			</div>
 		</div>
 	</div>
+	{#if ready}
+		<ul class="hero-email" transition:slide={{ delay: 3500 }}>
+			<li><a href="mailto:litang.richard@gmail.com">litang.richard @ gmail.com</a></li>
+		</ul>
+	{/if}
+	{#if ready}
+		<Socials />
+	{/if}
 </section>
 
 <style>
@@ -87,6 +106,39 @@
 		width: 0;
 		animation: typing 5s steps(40, end) forwards, blinking 1s forwards; */
 		animation: blinking 4s 1;
+	}
+
+	.hero-email {
+		display: flex;
+		flex-flow: column;
+		position: absolute;
+		top: 0;
+		right: calc(1vw + 0.5rem);
+		--size: calc(1vw + 1rem);
+		gap: calc(var(--size) / 2);
+		width: var(--size);
+	}
+
+	.hero-email a {
+		writing-mode: vertical-rl;
+		color: inherit;
+		text-decoration: none;
+		font-size: var(--font-sm);
+	}
+
+	.hero-email li::before {
+		content: '';
+		display: block;
+		width: 1px;
+		height: calc(var(--size) * 3);
+		margin: 0 auto;
+		margin-bottom: calc(var(--size) / 2);
+		background-color: black;
+	}
+
+	.hero-contents img:hover {
+		scale: 1.1;
+		cursor: pointer;
 	}
 
 	.hero-tagline-letter {

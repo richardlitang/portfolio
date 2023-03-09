@@ -4,9 +4,9 @@
 	--text_2: hsl(0, 0%, 20%);
 
 	--bg_0: hsl(0, 0%, 100%);
-	--bg_1: hsl(330, 10%, 95%);
-	--bg_2: hsl(40, 20%, 90%);
-	--bg_3: hsl(40, 20%, 80%);
+	--bg_1: hsl(40, 20%, 90%);;
+	--bg_2: hsl(39, 8%, 61%);
+	--bg_3: hsl(42, 5%, 37%);
 
 	--primary: #8e38ff;
 	--secondary: #52e9d0;
@@ -76,6 +76,12 @@ svg {
 	position: absolute;
 }
 
+.section-title {
+	font-size: var(--font-h2);
+	text-align: center;
+	font-family: var(--font--heading);
+}
+
 span {
 	display: flex;
 }
@@ -85,6 +91,7 @@ button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background-color: var(--bg_3);
 	box-shadow: 4px 6px var(--bg_2);
 
 	font-family: var(--font--body);
