@@ -16,7 +16,7 @@
 	.animated {
 		opacity: 0;
 		animation: 3s lineUp ease-out forwards;
-		animation-delay: var(--delay, 0.5s);
+		animation-delay: var(--delay, 0);
 	}
 
 	@keyframes lineUp {

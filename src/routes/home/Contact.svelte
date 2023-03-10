@@ -14,7 +14,9 @@
 		</div>
 	</div>
 	<InView>
-		<Socials --bottom="0" />
+		<div class="socials-footer">
+			<Socials --bottom="0" />
+		</div>
 	</InView>
 </Section>
 
@@ -32,7 +34,7 @@
 
 	button {
 		font-size: var(--font-md);
-		margin: calc(0.5vw + 1rem) auto;
+		margin: calc(1vw + 2rem) auto;
 		color: var(--bg_0);
 	}
 
@@ -41,22 +43,13 @@
 		text-decoration: none;
 	}
 
-	@media (min-width: 400px) {
-		img {
-			max-width: 8rem;
-			position: absolute;
-			right: 0;
-		}
-
-		.flex-item {
-			max-width: 25em;
-		}
+	.socials-footer {
+		visibility: hidden;
 	}
 
 	@media (min-width: 680px) {
-		img {
-			max-width: 20rem;
-			position: relative;
+		.socials-footer {
+			visibility: visible;
 		}
 	}
 </style>

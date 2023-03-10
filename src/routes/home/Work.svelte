@@ -1,18 +1,16 @@
 <script>
-	// import Section from '@sveltejs/site-kit/components/Section.svelte';
 	import InView from '$lib/components/InView.svelte';
 	import Section from '$lib/components/Section.svelte';
 	import arrowright from '$lib/icons/arrowright.svg';
-	import viewport from '../../lib/utils/useViewportAction';
 
 	let current = 'Dashlabs.ai';
 
 	const dashlabsTasks = [
-		'Built a patient duplicate-catching system that saved resources and enhanced user experience',
+		'Built a patient duplicate catching system that saved resources and enhanced user experience',
 		'Made the prototype for our queue management system to improve client processes',
 		'Diagnosed and improved patient form performance improving usability on lower-end devices',
 		"Worked on implementing the company's updated auth policy to our team's modules",
-		'Developed custom scripts for migration and cleansing of data stored in the database'
+		'Developed custom scripts for migration and cleansing of data stored in our database'
 	];
 
 	const thpalTasks = [
@@ -26,6 +24,9 @@
 </script>
 
 <Section --padding="2rem">
+	<InView>
+		<p class="section-title">Where I've worked</p>
+	</InView>
 	<InView>
 		<div class="work">
 			<div class="work-animation">
@@ -42,16 +43,14 @@
 					</div>
 				</div>
 				<div class="work-box">
-					<InView>
-						<div class="work-details">
-							{#each tasks as task}
-								<span>
-									<img src={arrowright} alt="" />
-									{task}
-								</span>
-							{/each}
-						</div>
-					</InView>
+					<div class="work-details">
+						{#each tasks as task}
+							<span>
+								<img src={arrowright} alt="" />
+								{task}
+							</span>
+						{/each}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -88,10 +87,6 @@
 		background-color: var(--bg_2);
 	}
 
-	.hidden {
-		visibility: hidden;
-	}
-
 	.work-tabs {
 		display: flex;
 		flex-flow: row;
@@ -110,12 +105,6 @@
 		border-top-left-radius: calc(0.25vw + 0.1rem);
 	}
 
-	.work-title {
-		text-align: center;
-		font-size: var(--font-h2);
-		font-family: var(--font--heading);
-	}
-
 	.work-details {
 		font-size: var(--font-sm);
 	}
@@ -131,36 +120,5 @@
 
 	.work-details span {
 		margin-bottom: 1rem;
-	}
-
-	.flex-item {
-		position: relative;
-	}
-
-	.flex-item p {
-		font-size: var(--font-md);
-	}
-
-	img {
-		max-width: 20rem;
-	}
-
-	@media (min-width: 800px) {
-		.work-box {
-			gap: 1rem;
-			flex-flow: row;
-		}
-		img {
-			max-width: 8rem;
-			position: absolute;
-			right: 0;
-		}
-	}
-
-	@media (min-width: 680px) {
-		img {
-			max-width: 20rem;
-			position: relative;
-		}
 	}
 </style>

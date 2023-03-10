@@ -5,12 +5,15 @@
 
 <Section --padding="6rem">
 	<div class="flex">
+		<InView>
+			<p class="section-title">About me</p>
+		</InView>
 		<div class="flex-item">
 			<InView>
 				<p>
-					For a year now, I've been a part of a startup that aims to simplify healthcare. Being part
-					of the patient management team, I worked on our registration forms, ... I also built the
-					prototype for our queue management system.
+					Hi! My name's Richard and I'm a full stack developer. For a year now, I've been a part of
+					a startup that aims to simplify healthcare. Being part of the patient management system,
+					we build
 				</p>
 			</InView>
 			<InView --delay="1s">
@@ -37,30 +40,14 @@
 	}
 
 	.flex-item p {
+		line-height: 1.8;
 		font-size: var(--font-md);
 		margin-bottom: var(--font-lg);
 	}
 
-	img {
-		max-width: 20rem;
-	}
-
 	@media (min-width: 400px) {
-		img {
-			max-width: 8rem;
-			position: absolute;
-			right: 0;
-		}
-
 		.flex-item {
 			max-width: 25em;
-		}
-	}
-
-	@media (min-width: 680px) {
-		img {
-			max-width: 20rem;
-			position: relative;
 		}
 	}
 </style>

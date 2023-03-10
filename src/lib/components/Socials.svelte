@@ -18,10 +18,10 @@
 		display: flex;
 		flex-flow: column;
 		position: absolute;
-		bottom: var(--bottom, calc(2vw));
+		bottom: var(--bottom, 1.5rem);
 		left: calc(1vw + 0.5rem);
 		--size: calc(1vw + 1rem);
-		gap: calc(var(--size) / 2);
+		gap: calc(var(--size) / 4 + 0.5vw);
 		width: var(--size);
 	}
 

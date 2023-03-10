@@ -6,16 +6,12 @@
 </script>
 
 <main id="main">
-	<nav>
-		<p class="logo">rj</p>
-	</nav>
 	<slot />
 	<footer>
 		<p>
-			This portfolio is <a
-				target="_blank"
-				rel="noreferrer"
-				href="https://github.com/heisenberglar/portfolio">free and open source.</a
+			Built by Richard Litang. It's free and
+			<a target="_blank" rel="noreferrer" href="https://github.com/heisenberglar/portfolio"
+				>open source.</a
 			>
 		</p>
 	</footer>
@@ -28,31 +24,17 @@
 		background-color: var(--bg_1);
 	}
 
-	p {
-		font-family: var(--font--heading);
-		font-size: var(--font-lg);
-		line-height: 1;
-	}
-
-	nav {
-		background-color: var(--bg_1);
-	}
-
-	.logo {
-		padding: calc(1vw + 0.25rem) calc(2vw + 1rem);
-		z-index: -5;
-	}
-
 	footer {
 		text-align: center;
-		font-size: var(--font-md);
-		display: block;
-		padding: 2rem 1rem;
 		color: var(--bg_2);
+		padding: 1rem;
 	}
 
 	footer p {
+		font-family: var(--font--heading);
+		font-size: var(--font-sm);
 		max-width: 20em;
+		margin: 0 auto;
 	}
 
 	footer p a {
@@ -64,40 +46,5 @@
 		footer p {
 			max-width: none;
 		}
-	}
-
-	.small {
-		display: inline;
-	}
-
-	.large {
-		display: none;
-	}
-
-	/* duplicating content from <Nav> — bit hacky but will do for now */
-	.separator {
-		display: block;
-		position: relative;
-		height: 1px;
-		margin: 0.5rem 0;
-		background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05));
-	}
-
-	@media (min-width: 800px) {
-		.small {
-			display: none;
-		}
-	}
-
-	@media (min-width: 960px) {
-		/* this is an unfortunate hack, but necessary to temporarily avoid
-		breaking changes to site-kit */
-		:global(ul.external) {
-			width: 30rem !important;
-		}
-	}
-
-	:global(body) {
-		font-size: 1.6rem !important;
 	}
 </style>

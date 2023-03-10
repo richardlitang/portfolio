@@ -2,35 +2,35 @@
 	import InView from '$lib/components/InView.svelte';
 	import Section from '$lib/components/Section.svelte';
 
-	import asmeditor from './projects/asmeditor.png';
-	import pausly from './projects/pausly.png';
-	import pronauns from './projects/pronauns.png';
-	import pudding from './projects/pudding.png';
+	import earth from './projects/earth.jpg';
+	import portfolio from './projects/portfolio.png';
+	import taskjar from './projects/taskjar.png';
+	import resource from './projects/resource.png';
 
 	const projects = [
 		{
-			url: 'pudding.cool',
-			image: pudding,
-			title: 'ResourcePortal',
-			description: 'Nosce te ipsum dorma dow dada samada te amo tejada'
+			url: 'https://litang.dev',
+			image: portfolio,
+			title: 'Portfolio',
+			description: 'Personal website made with Svelte'
 		},
 		{
-			url: 'www.pronauns.com',
-			image: pronauns,
-			title: 'ResourcePortal',
-			description: 'Nosce te ipsum dorma dow dada samada te amo tejada'
+			url: 'https://github.com/heisenberglar/one-earth-api',
+			image: earth,
+			title: 'One Earth API',
+			description: 'API using Go, Postgresql, and Docker'
 		},
 		{
-			url: 'www.pausly.app',
-			image: pausly,
-			title: 'ResourcePortal',
-			description: 'Nosce te ipsum dorma dow dada samada te amo tejada'
+			url: 'https://heisenberglar.github.io/task-jar/',
+			image: taskjar,
+			title: 'TaskJar',
+			description: 'A to-do list with a twist made with React'
 		},
 		{
-			url: 'asm-editor.specy.app',
-			image: asmeditor,
+			url: 'https://github.com/heisenberglar/resource-web',
+			image: resource,
 			title: 'ResourcePortal',
-			description: 'Nosce te ipsum dorma dow dada samada te amo tejada'
+			description: 'A suggestion board made with Next.js and Strapi'
 		}
 	];
 
@@ -41,15 +41,17 @@
 	<InView>
 		<p class="section-title">Projects I've made</p>
 	</InView>
-	<InView --delay="2s">
+	<InView --delay="1s">
 		<div class="projects-contents">
 			{#each doubledProjects as { url, image, title, description }}
 				<div class="projects-entry">
-					<a href="https://{url}" target="_blank" rel="noreferrer">
-						<img src={image} alt="" />
+					<a href={url} target="_blank" rel="noreferrer">
+						<img src={image} alt={title} />\
+						<span>
+							<p class="projects-title">{title}</p>
+							<p>{description}</p>
+						</span>
 					</a>
-					<!-- <p>{title}</p>
-					<p>{description}</p> -->
 				</div>
 			{/each}
 		</div>
@@ -89,35 +91,37 @@
 		overflow: hidden;
 		display: flex;
 		overflow: hidden;
-		aspect-ratio: 16/9;
+		position: relative;
+		aspect-ratio: 16 / 9;
 		border-radius: var(--font-md);
 		box-shadow: 4px 6px var(--bg_2);
 		max-width: var(--max-size);
 		max-height: var(--max-size);
+		font-size: var(--font-md);
+	}
+
+	a img {
+		scale: 1.01;
 	}
 
 	span {
 		position: absolute;
 		display: flex;
+		flex-flow: column;
 		align-items: center;
 		justify-content: center;
-		left: 0;
-		top: 0;
-		/* background: rgba(0, 0, 0, 0.25); */
+		width: 100%;
+		height: 100%;
 		color: white;
-		/* backdrop-filter: blur(3px); */
+		backdrop-filter: blur(2px) brightness(30%);
 		opacity: 0;
-		/* transition: opacity 0.2s; */
-		font-size: var(--sk-text-s);
-		/* filter: drop-shadow(0 0 0.5rem rgba(0, 0, 0, 0.5)); */
 	}
 
+	span p {
+		max-width: 80%;
+	}
 	a:hover span {
-		max-width: 5%;
-	}
-
-	a:hover :global(img) {
-		transform: scale(1.05);
+		opacity: 1;
 	}
 
 	@media (min-width: 400px) {
