@@ -60,15 +60,19 @@
 					<img src={mongodb} alt="MongoDB logo" />
 					<span class="skills-name">MongoDB</span>
 				</a>
+				<a rel="noreferrer" href="https://jestjs.io/">
+					<img src={jest} alt="Jest logo" />
+					<span class="skills-name">Jest</span>
+				</a>
+				<a rel="noreferrer" href="https://git-scm.com/">
+					<img src={git} alt="Git logo" />
+					<span class="skills-name">Git</span>
+				</a>
 			</div>
 		</InView>
 		<InView>
 			<p class="skills-level">Amateur</p>
 			<div class="skills-professional">
-				<a rel="noreferrer" href="https://jestjs.io/">
-					<img src={jest} alt="Jest logo" />
-					<span class="skills-name">Jest</span>
-				</a>
 				<a rel="noreferrer" href="https://www.docker.com/">
 					<img src={docker} alt="Docker logo" />
 					<span class="skills-name">Docker</span>
@@ -80,10 +84,6 @@
 				<a rel="noreferrer" href="https://go.dev/">
 					<img src={go} alt="Go logo" />
 					<span class="skills-name">Go</span>
-				</a>
-				<a rel="noreferrer" href="https://git-scm.com/">
-					<img src={git} alt="Git logo" />
-					<span class="skills-name">Git</span>
 				</a>
 				<a rel="noreferrer" href="https://www.postgresql.org/">
 					<img src={postgres} alt="Postgres logo" />
