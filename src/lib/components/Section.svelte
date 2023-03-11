@@ -6,6 +6,7 @@
 	section {
 		background-color: var(--bgColor, 'white');
 		padding: var(--padding, 4rem) 0;
+		border-top: 1px solid black;
 	}
 
 	section::after {

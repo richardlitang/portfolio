@@ -60,7 +60,7 @@
 
 <style>
 	.projects-contents {
-		--max-size: 12rem;
+		--max-size: 20rem;
 		--gap: calc(1.5vw + 1rem);
 		gap: var(--gap);
 
@@ -68,7 +68,7 @@
 		display: flex;
 		text-align: center;
 		display: flex;
-		animation: move-card 20s linear infinite;
+		animation: move-card 15s linear infinite;
 	}
 
 	.section-title {
@@ -127,6 +127,7 @@
 	@media (min-width: 400px) {
 		.projects-contents {
 			--max-size: 25rem;
+			animation: move-card 20s linear infinite;
 		}
 	}
 </style>

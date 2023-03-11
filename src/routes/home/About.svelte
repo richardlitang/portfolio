@@ -3,7 +3,7 @@
 	import Section from '$lib/components/Section.svelte';
 </script>
 
-<Section --padding="6rem">
+<Section --padding="8rem">
 	<div class="flex">
 		<InView>
 			<p class="section-title">About me</p>

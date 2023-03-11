@@ -112,7 +112,7 @@
 
 	.skills-level {
 		text-align: center;
-		font-size: var(--font-xl);
+		font-size: var(--font-h4);
 		font-family: var(--font--heading);
 		margin: var(--spacer-lg) auto;
 		margin-top: var(--spacer-xl);
@@ -133,12 +133,13 @@
 		text-decoration: none;
 		background-color: var(--bg_1);
 
-		--size: calc(1.5vw + 1.75rem);
+		--size: calc(1.5vw + 1.85rem);
 		width: var(--size);
 
 		padding: calc(var(--size) / 3) calc(var(--size) / 1.5);
 		border-radius: calc(var(--size) / 3);
 		box-shadow: 2px 6px var(--bg_3);
+		gap: 0.5rem;
 	}
 
 	.skills a:hover {

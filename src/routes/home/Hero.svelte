@@ -37,7 +37,7 @@
 <style>
 	.hero {
 		max-width: 100vw;
-		min-height: 100vh;
+		min-height: 92vh;
 		background: var(--bg_1);
 		background-image: radial-gradient(var(--bg_3) 0.5px, transparent 0px);
 		background-size: 30px 30px;
@@ -125,15 +125,9 @@
 		}
 	}
 
-	@media (min-width: 800px) {
-		.hero-name {
-			font-size: 10vw;
-		}
-	}
-
 	@media (min-width: 768px) {
 		.hero {
-			padding: calc(10rem + var(--sk-nav-height)) var(--sk-page-padding-side) 16rem;
+			min-height: 100vh;
 		}
 		.hero-contents {
 			max-width: calc(120rem - 2);
