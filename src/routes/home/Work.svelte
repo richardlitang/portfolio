@@ -24,37 +24,39 @@
 </script>
 
 <Section --padding="2rem">
-	<InView>
-		<p class="section-title">Where I've worked</p>
-	</InView>
-	<InView>
-		<div class="work">
-			<div class="work-animation">
-				<div>
-					<div class="work-tabs">
-						<button
-							class={current === 'Dashlabs.ai' ? 'selected' : ''}
-							on:click={() => (current = 'Dashlabs.ai')}>Dashlabs.ai</button
-						>
-						<button
-							class={current === 'THPAL' ? 'selected' : ''}
-							on:click={() => (current = 'THPAL')}>THPAL</button
-						>
+	<div class="work-parent">
+		<InView>
+			<p class="section-title">Where I've worked</p>
+		</InView>
+		<InView>
+			<div class="work">
+				<div class="work-animation">
+					<div>
+						<div class="work-tabs">
+							<button
+								class={current === 'Dashlabs.ai' ? 'selected' : ''}
+								on:click={() => (current = 'Dashlabs.ai')}>Dashlabs.ai</button
+							>
+							<button
+								class={current === 'THPAL' ? 'selected' : ''}
+								on:click={() => (current = 'THPAL')}>THPAL</button
+							>
+						</div>
 					</div>
-				</div>
-				<div class="work-box">
-					<div class="work-details">
-						{#each tasks as task}
-							<span>
-								<img src={arrowright} alt="" />
-								{task}
-							</span>
-						{/each}
+					<div class="work-box">
+						<div class="work-details">
+							{#each tasks as task}
+								<span>
+									<img src={arrowright} alt="" />
+									{task}
+								</span>
+							{/each}
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</InView>
+		</InView>
+	</div>
 </Section>
 
 <style>

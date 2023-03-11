@@ -13,12 +13,12 @@
 			</InView>
 		</div>
 	</div>
-	<InView>
-		<div class="socials-footer">
-			<Socials --bottom="0" />
-		</div>
-	</InView>
 </Section>
+<InView>
+	<div class="socials-footer">
+		<Socials --bottom="0" />
+	</div>
+</InView>
 
 <style>
 	.flex {
@@ -36,6 +36,10 @@
 		font-size: var(--font-md);
 		margin: calc(1vw + 2rem) auto;
 		color: var(--bg_0);
+	}
+
+	button:hover {
+		scale: 1.01;
 	}
 
 	a {

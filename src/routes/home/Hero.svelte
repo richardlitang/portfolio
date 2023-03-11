@@ -39,6 +39,9 @@
 		max-width: 100vw;
 		min-height: 100vh;
 		background: var(--bg_1);
+		background-image: radial-gradient(var(--bg_3) 0.5px, transparent 0px);
+		background-size: 30px 30px;
+		background-position: 0 0, 15px 15px;
 
 		position: relative;
 	}

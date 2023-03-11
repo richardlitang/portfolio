@@ -1,10 +1,6 @@
 <script>
-	// import Features from './home/Features.svelte';
 	import Hero from './home/Hero.svelte';
 	import Projects from './home/Projects.svelte';
-	// // import Try from './home/Try.svelte';
-	// import Deployment from './home/Deployment.svelte';
-	// // import Svelte from './home/Svelte.svelte';
 	import About from './home/About.svelte';
 	import Work from './home/Work.svelte';
 	import Skills from './home/Skills.svelte';
@@ -28,7 +24,9 @@
 <div class="home">
 	<Hero />
 	<About />
-	<Work />
+	<div class="textured">
+		<Work />
+	</div>
 	<Projects />
 	<Skills />
 	<Contact />
@@ -39,5 +37,11 @@
 		background-color: var(--bg_0);
 		border-bottom-left-radius: 2rem;
 		border-bottom-right-radius: 2rem;
+	}
+
+	.textured {
+		background-image: radial-gradient(black 0.5px, transparent 0px);
+		background-size: 30px 30px;
+		background-position: 0 0, 15px 15px;
 	}
 </style>

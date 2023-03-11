@@ -11,16 +11,16 @@
 		<div class="flex-item">
 			<InView>
 				<p>
-					Hi! My name's Richard and I'm a full stack developer. For a year now, I've been a part of
-					a startup that aims to simplify healthcare. Being part of the patient management system,
-					we build
+					Hi! I'm Richard, a full-stack developer. For a year now, I've had the privilege of working
+					with a startup that aims to simplify healthcare. I work with a team that builds features
+					for our forms, patient management system, and site operations among others.
 				</p>
 			</InView>
 			<InView --delay="1s">
 				<p>
-					Before becoming a developer, I was an engineer in a power plant. I learned how to solve
-					problems of varying complexities, work under pressure, and communicate effectively with
-					people from different backgrounds and across multiple channels.
+					Although I work with software now, I actually started my career as an engineer in a power
+					plant. It was there I learned how to solve complex problems, design solutions, and
+					communicate effectively. Things I found helpful as I transitioned to the web.
 				</p>
 			</InView>
 		</div>
