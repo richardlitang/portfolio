@@ -36,10 +36,10 @@
 	--font-lg: calc(1.15vw + 0.65rem);
 	--font-xl: calc(1.60vw + 0.65rem);
 	--font-2xl: calc(2vw + 0.65rem);
-	--font-h1: calc(3.5vw + 0.75rem);
-	--font-h2: calc(3vw + 0.75rem);
-	--font-h3: calc(2.5vw + 0.75rem);
-	--font-h4: calc(2vw + 0.75rem);
+	--font-h1: calc(4vw + 0.85rem);
+	--font-h2: calc(3vw + 0.85rem);
+	--font-h3: calc(2.5vw + 0.85rem);
+	--font-h4: calc(2vw + 0.85rem);
 }
 
 body {

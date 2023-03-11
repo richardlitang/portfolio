@@ -114,8 +114,7 @@
 		text-align: center;
 		font-size: var(--font-h4);
 		font-family: var(--font--heading);
-		margin: var(--spacer-lg) auto;
-		margin-top: var(--spacer-xl);
+		margin: var(--spacer-md) auto;
 	}
 
 	.skills div {
@@ -123,6 +122,7 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: calc(1vw + 0.75rem);
+		margin-bottom: var(--spacer-lg);
 	}
 
 	.skills a {

@@ -37,7 +37,7 @@
 <style>
 	.hero {
 		max-width: 100vw;
-		min-height: 92vh;
+		min-height: 93vh;
 		background: var(--bg_1);
 		background-image: radial-gradient(var(--bg_3) 0.5px, transparent 0px);
 		background-size: 30px 30px;
@@ -49,7 +49,7 @@
 	.hero-contents {
 		position: relative;
 		padding: 5vh 2vw;
-		top: calc(50vh - var(--font-h1) * 4);
+		top: calc(45vh - var(--font-h1) * 5);
 		margin: 0 auto;
 		padding-bottom: 10rem;
 		font-family: var(--font--title);
@@ -69,7 +69,7 @@
 		font-family: var(--font--heading);
 		margin: 0 auto;
 		line-height: 1;
-		font-size: 12.5vw;
+		font-size: calc(8vw + 2rem);
 		justify-content: center;
 	}
 
@@ -132,6 +132,7 @@
 		.hero-contents {
 			max-width: calc(120rem - 2);
 			padding-bottom: 0rem;
+			top: calc(50vh - var(--font-h1) * 3.25);
 		}
 
 		.hero-text {
