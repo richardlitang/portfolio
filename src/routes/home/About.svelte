@@ -29,9 +29,13 @@
 
 <style>
 	.flex {
-		margin: 4rem auto;
+		margin: 0 auto;
 		display: flex;
 		flex-flow: column;
+	}
+
+	.section-title {
+		margin-bottom: 2rem;
 	}
 
 	.flex-item {

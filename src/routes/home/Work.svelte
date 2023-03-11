@@ -85,6 +85,10 @@
 		border-top-left-radius: 0;
 	}
 
+	.section-title {
+		margin-top: 4rem;
+	}
+
 	.selected {
 		background-color: var(--bg_2);
 	}

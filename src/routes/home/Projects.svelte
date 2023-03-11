@@ -9,6 +9,12 @@
 
 	const projects = [
 		{
+			url: 'https://heisenberglar.github.io/task-jar/',
+			image: taskjar,
+			title: 'TaskJar',
+			description: 'A to-do list with a twist made with React'
+		},
+		{
 			url: 'https://litang.dev',
 			image: portfolio,
 			title: 'Portfolio',
@@ -21,16 +27,10 @@
 			description: 'API using Go, Postgresql, and Docker'
 		},
 		{
-			url: 'https://heisenberglar.github.io/task-jar/',
-			image: taskjar,
-			title: 'TaskJar',
-			description: 'A to-do list with a twist made with React'
-		},
-		{
 			url: 'https://github.com/heisenberglar/resource-web',
 			image: resource,
 			title: 'ResourcePortal',
-			description: 'A suggestion board made with Next.js and Strapi'
+			description: 'Full stack app to share the best learning resources'
 		}
 	];
 
@@ -73,6 +73,7 @@
 
 	.section-title {
 		color: var(--bg_0);
+		margin-bottom: 3rem;
 	}
 	.projects-contents:hover {
 		animation-play-state: paused;
