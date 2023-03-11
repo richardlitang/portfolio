@@ -36,6 +36,7 @@
 		"@fontsource/cormorant": "^4.5.10",
 		"@fontsource/italiana": "^4.5.11",
 		"@fontsource/poppins": "^4.5.10",
-		"@fontsource/raleway": "^4.5.12"
+		"@fontsource/raleway": "^4.5.12",
+		"gh-pages": "^5.0.0"
 	}
 }
