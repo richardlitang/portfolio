@@ -23,7 +23,7 @@
 	$: tasks = current === 'Dashlabs.ai' ? dashlabsTasks : thpalTasks;
 </script>
 
-<Section --padding="2rem">
+<Section --padding="2rem" --bgColor="var(--bg_1)">
 	<div class="work-parent">
 		<InView>
 			<p class="section-title">Where I've worked</p>

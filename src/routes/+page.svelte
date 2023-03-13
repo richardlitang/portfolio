@@ -24,9 +24,7 @@
 <div class="home">
 	<Hero />
 	<About />
-	<div class="textured">
-		<Work />
-	</div>
+	<Work />
 	<Projects />
 	<Skills />
 	<Contact />
