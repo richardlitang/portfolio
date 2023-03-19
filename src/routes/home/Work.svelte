@@ -6,10 +6,10 @@
 	let current = 'Dashlabs.ai';
 
 	const dashlabsTasks = [
-		'Built a patient duplicate catching system that saved resources and enhanced user experience',
-		'Made the prototype for our queue management system to improve client processes',
-		'Diagnosed and improved patient form performance improving usability on lower-end devices',
-		"Worked on implementing the company's updated auth policy to our team's modules",
+		'Made the prototype for a queue management system, integrated with other parts of the platform, to improve client processes and capture revenue',
+		"Built a patient duplicate catching system for our CSV patient import that recognizes existing patients and uses them instead of creating new records, saving hundreds of patients' worth of data per import and enhancing user experience",
+		'Developed features and improvements for various parts of the product (e.g., forms, tables, search, logs, downloads)',
+		"Worked on implementing the company's updated authorization policy to our team's modules to improve security",
 		'Developed custom scripts for migration and cleansing of data stored in our database'
 	];
 
@@ -35,10 +35,12 @@
 						<div class="work-tabs">
 							<button
 								class={current === 'Dashlabs.ai' ? 'selected' : ''}
+								aria-selected={current === 'Dashlabs.ai'}
 								on:click={() => (current = 'Dashlabs.ai')}>Dashlabs.ai</button
 							>
 							<button
 								class={current === 'THPAL' ? 'selected' : ''}
+								aria-selected={current !== 'Dashlabs.ai'}
 								on:click={() => (current = 'THPAL')}>THPAL</button
 							>
 						</div>

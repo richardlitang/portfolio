@@ -30,7 +30,7 @@
 			url: 'https://github.com/heisenberglar/resource-web',
 			image: resource,
 			title: 'ResourcePortal',
-			description: 'Full stack app to share the best learning resources'
+			description: 'Full stack app to share and rate the best learning resources'
 		}
 	];
 
