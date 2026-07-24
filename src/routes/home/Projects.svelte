@@ -69,6 +69,7 @@
 		{
 			title: 'Bound',
 			image: bound,
+			imgPos: 'center left',
 			blurb:
 				'A commitment tool for ADHD brains, built as a Chrome extension — not another to-do list.',
 			tags: ['TypeScript', 'Chrome MV3', 'Vite'],
@@ -87,11 +88,16 @@
 		<p class="section-title">Selected work</p>
 	</InView>
 	<div class="projects-grid">
-		{#each projects as { title, image, blurb, tags, highlights, repo, live }, i}
+		{#each projects as { title, image, imgPos, blurb, tags, highlights, repo, live }, i}
 			<InView --delay={`${0.15 * i}s`}>
 				<article class="card">
 					<div class="card-media">
-						<img src={image} alt={`${title} screenshot`} loading="lazy" />
+						<img
+							src={image}
+							alt={`${title} screenshot`}
+							loading="lazy"
+							style={imgPos ? `object-position: ${imgPos}` : ''}
+						/>
 					</div>
 					<div class="card-body">
 						<div class="card-head">
