@@ -9,7 +9,7 @@
 		<div class="flex-item">
 			<InView>
 				<p class="section-title">That's all for now</p>
-				<a href="mailto:litang.richard@gmail.com"><button> Say hello!</button></a>
+				<a href="mailto:richardjasonlitang@gmail.com"><button> Say hello!</button></a>
 			</InView>
 		</div>
 	</div>

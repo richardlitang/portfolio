@@ -3,24 +3,36 @@
 	import Section from '$lib/components/Section.svelte';
 	import arrowright from '$lib/icons/arrowright.svg';
 
-	let current = 'Dashlabs.ai';
-
-	const dashlabsTasks = [
-		'Made the prototype for a queue management system, integrated with other parts of the platform, to improve client processes and capture revenue',
-		"Built a patient duplicate catching system for our CSV patient import that recognizes existing patients and uses them instead of creating new records, saving hundreds of patients' worth of data per import and enhancing user experience",
-		'Developed features and improvements for various parts of the product (e.g., forms, tables, search, logs, downloads)',
-		"Worked on implementing the company's updated authorization policy to our team's modules to improve security",
-		'Developed custom scripts for migration and cleansing of data stored in our database'
+	const roles = [
+		{
+			company: 'BuildPass',
+			title: 'Software Engineer',
+			meta: 'Melbourne, AU (Remote) · Oct 2024 – Feb 2026',
+			tasks: [
+				'Led "Lighthouse," a delivery stream for urgent customer requests and market-localized workflows — shipping the workflow, dashboard, and configuration changes behind the company’s US market launch.',
+				'Built AI-assisted product workflows across template generation, document analysis, scheduling, and action suggestions.',
+				'Delivered the subcontractor Plant & Equipment module (registers, checklist linking, multi-step review), enabling hundreds of construction companies to self-manage equipment.',
+				'Drove the Photos Uplift: moved heavy exports to async background jobs and rebuilt the UX with drag-and-drop folders, annotations, threads, and metadata stamping.',
+				'Improved reliability and performance — optimizing React forms, tuning GraphQL queries and caching, replacing server-fetched translations with build-time bundling, extending Sentry coverage, and eliminating cascading retry loops.',
+				'Shipped 200+ fixes and features, onboarded engineers, and won the company hackathon with an AI bulk-import prototype that cut setup from hours to minutes.'
+			]
+		},
+		{
+			company: 'Dashlabs.ai',
+			title: 'Full Stack Engineer · YC W21',
+			meta: 'Manila, PH (Remote) · Mar 2022 – Sep 2024',
+			tasks: [
+				'Owned the EHR/EMR modules — result entry, patient intake, the patient portal, and B2B client portals — and contributed to result certificates, appointments, the POS system, and auth.',
+				'Built a patient queue management system from zero to one, cutting wait times and unlocking a new B2B revenue stream.',
+				'Cut backend load with caching, background job queues, and MongoDB schema/index tuning — enabling a database-tier downgrade that reduced infra cost.',
+				'Migrated search to MongoDB Atlas Search, improving relevance and scalability.',
+				'Refactored core APIs for high-volume clinical lab workflows, improving throughput up to 10x at peak hours.'
+			]
+		}
 	];
 
-	const thpalTasks = [
-		'Operated a steam power plant and all its auxiliaries without a single emergency shutdown event',
-		'Troubleshot and prevented major equipment and system failures',
-		'Mentored new control room operators and contributed to our process documentation to improve knowledge base',
-		'Started as a field engineer conducting operation checklists, diagnosing equipment failures, and designing improvements for the field'
-	];
-
-	$: tasks = current === 'Dashlabs.ai' ? dashlabsTasks : thpalTasks;
+	let current = 'BuildPass';
+	$: role = roles.find((r) => r.company === current) ?? roles[0];
 </script>
 
 <Section --padding="2rem" --bgColor="var(--bg_1)">
@@ -31,23 +43,20 @@
 		<InView>
 			<div class="work">
 				<div class="work-animation">
-					<div>
-						<div class="work-tabs">
+					<div class="work-tabs">
+						{#each roles as { company }}
 							<button
-								class={current === 'Dashlabs.ai' ? 'selected' : ''}
-								aria-selected={current === 'Dashlabs.ai'}
-								on:click={() => (current = 'Dashlabs.ai')}>Dashlabs.ai</button
+								class={current === company ? 'selected' : ''}
+								aria-selected={current === company}
+								on:click={() => (current = company)}>{company}</button
 							>
-							<button
-								class={current === 'THPAL' ? 'selected' : ''}
-								aria-selected={current !== 'Dashlabs.ai'}
-								on:click={() => (current = 'THPAL')}>THPAL</button
-							>
-						</div>
+						{/each}
 					</div>
 					<div class="work-box">
+						<p class="role-title">{role.title}</p>
+						<p class="role-meta">{role.meta}</p>
 						<div class="work-details">
-							{#each tasks as task}
+							{#each role.tasks as task}
 								<span>
 									<img src={arrowright} alt="" />
 									{task}
@@ -58,6 +67,12 @@
 				</div>
 			</div>
 		</InView>
+		<InView>
+			<p class="prior">
+				Earlier: three years as a power-plant shift supervisor, leading a 24/7 operations team to a
+				zero-shutdown record — where the reliability and root-cause habits started.
+			</p>
+		</InView>
 	</div>
 </Section>
 
@@ -65,26 +80,37 @@
 	.work {
 		max-width: fit-content;
 		border-radius: 0.5rem;
-		padding: calc(2.5vw + 1rem);
+		padding: calc(2.5vw + 1rem) calc(2.5vw + 1rem) 0;
 		margin: 0 auto;
-		margin-bottom: 8rem;
 		color: var(--bg_0);
 	}
 	.work-box {
 		display: flex;
 		flex-flow: column;
-		justify-content: center;
 		background: var(--bg_2);
 		line-height: 2;
 
-		max-width: 30em;
+		max-width: 34em;
 		min-height: 40vh;
 		margin: 0 auto;
-		padding: calc(4vw + 1rem) calc(2vw + 0.25rem);
+		padding: calc(3vw + 1rem) calc(2vw + 0.75rem);
 		box-shadow: 2px 5px var(--bg_3);
 
 		border-radius: calc(0.5vw + 0.25rem);
 		border-top-left-radius: 0;
+	}
+
+	.role-title {
+		font-family: var(--font--heading);
+		font-size: var(--font-lg);
+		line-height: 1.2;
+	}
+
+	.role-meta {
+		font-size: var(--font-sm);
+		color: var(--text_2);
+		line-height: 1.2;
+		margin-bottom: 1.5rem;
 	}
 
 	.section-title {
@@ -98,6 +124,7 @@
 	.work-tabs {
 		display: flex;
 		flex-flow: row;
+		flex-wrap: wrap;
 	}
 
 	.work-tabs button {
@@ -128,5 +155,15 @@
 
 	.work-details span {
 		margin-bottom: 1rem;
+	}
+
+	.prior {
+		max-width: 40em;
+		margin: 1.5rem auto 8rem;
+		padding: 0 1rem;
+		text-align: center;
+		font-size: var(--font-sm);
+		color: var(--text_2);
+		line-height: 1.7;
 	}
 </style>

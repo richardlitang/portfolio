@@ -11,16 +11,18 @@
 		<div class="flex-item">
 			<InView>
 				<p>
-					Hi! I'm Richard, a full-stack developer. For a year now, I've had the privilege of working
-					with a startup that aims to simplify healthcare. I work with a team that builds features
-					for our forms, patient management system, and site operations among others.
+					I'm a full-stack engineer who ships production features end to end — from zero-to-one
+					builds to 10x performance work. Most recently at BuildPass (construction SaaS) and before
+					that Dashlabs.ai (YC W21 healthtech), I've owned modules across the stack and shipped real
+					AI features that hold up in production, not just demos.
 				</p>
 			</InView>
-			<InView --delay="1s">
+			<InView --delay="0.6s">
 				<p>
-					Although I work with software now, I actually started my career as an engineer in a power
-					plant. It was there I learned how to solve complex problems, design solutions, and
-					communicate effectively. Things I found helpful as I transitioned to the web.
+					I care about systems that stay reliable under load and interfaces that make complex
+					workflows feel simple. I started in a different control room: three years running a 24/7
+					power plant with a zero-shutdown record. That reliability mindset — real-time incident
+					response and root-cause discipline — is how I approach software.
 				</p>
 			</InView>
 		</div>
@@ -51,7 +53,7 @@
 
 	@media (min-width: 400px) {
 		.flex-item {
-			max-width: 25em;
+			max-width: 32em;
 		}
 	}
 </style>

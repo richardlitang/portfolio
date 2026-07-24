@@ -8,15 +8,24 @@
 </script>
 
 <svelte:head>
-	<title>Richard • Web Developer</title>
+	<title>Richard Litang • Software Engineer</title>
 
-	<meta name="twitter:title" content="Richard Litang" />
-	<meta name="twitter:description" content="Web developer" />
-	<meta name="description" content="Richard Litang's portfolio" />
+	<meta name="twitter:title" content="Richard Litang • Software Engineer" />
+	<meta
+		name="twitter:description"
+		content="Full-stack engineer building AI-grounded products end to end."
+	/>
+	<meta
+		name="description"
+		content="Richard Litang — full-stack software engineer building AI-grounded products end to end."
+	/>
 
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Richard • Web development" />
-	<meta property="og:description" content="Richard Litang's portfolio" />
+	<meta property="og:title" content="Richard Litang • Software Engineer" />
+	<meta
+		property="og:description"
+		content="Full-stack engineer building AI-grounded products end to end."
+	/>
 	<meta property="og:url" content="https://litang.dev/" />
 	<meta property="og:image" />
 </svelte:head>

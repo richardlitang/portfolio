@@ -19,14 +19,19 @@
 			<span class="hero-name">Richard</span>
 			<div class="hero-tagline">
 				{#if showText}
-					<p transition:typewriter={{ speed: 1 }}>I make ideas digital</p>
+					<p transition:typewriter={{ speed: 1 }}>
+						Full-stack engineer building AI-grounded products end to end
+					</p>
 				{/if}
 			</div>
+			<span class="hero-location">Liège, Belgium</span>
 		</div>
 	</div>
 	{#if ready}
 		<ul class="hero-email" transition:slide={{ delay: 3500 }}>
-			<li><a href="mailto:litang.richard@gmail.com">litang.richard @ gmail.com</a></li>
+			<li>
+				<a href="mailto:richardjasonlitang@gmail.com">richardjasonlitang @ gmail.com</a>
+			</li>
 		</ul>
 	{/if}
 	{#if ready}
@@ -79,7 +84,18 @@
 		font-size: var(--font-h4);
 		line-height: 1.2;
 		margin: 1rem auto;
+		max-width: 20em;
 		animation: blinking 4s 1;
+	}
+
+	.hero-location {
+		justify-content: center;
+		font-size: var(--font-sm);
+		font-family: var(--font--body);
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		margin-top: 1.5rem;
+		opacity: 0.7;
 	}
 
 	.hero-email {

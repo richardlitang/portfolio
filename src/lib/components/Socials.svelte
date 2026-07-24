@@ -6,7 +6,7 @@
 
 <div>
 	<ul class="socials" transition:slide={{ delay: 3000 }}>
-		<li><a href="https://github.com/heisenberglar"><img src={github} alt="github" /></a></li>
+		<li><a href="https://github.com/richardlitang"><img src={github} alt="github" /></a></li>
 		<li>
 			<a href="https://linkedin.com/in/richardlitang"><img src={linkedin} alt="linkedin" /></a>
 		</li>

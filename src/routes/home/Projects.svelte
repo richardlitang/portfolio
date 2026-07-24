@@ -1,134 +1,240 @@
 <script>
 	import InView from '$lib/components/InView.svelte';
 	import Section from '$lib/components/Section.svelte';
-
-	import earth from './projects/earth.jpg';
-	import portfolio from './projects/portfolio.png';
-	import taskjar from './projects/taskjar.png';
-	import resource from './projects/resource.png';
+	import github from '$lib/icons/github.svg';
+	import arrowright from '$lib/icons/arrowright.svg';
 
 	const projects = [
 		{
-			url: 'https://heisenberglar.github.io/task-jar/',
-			image: taskjar,
-			title: 'TaskJar',
-			description: 'A to-do list with a twist made with React'
+			title: 'Support Copilot',
+			blurb:
+				'A support-investigation workspace that shows its retrieval and grounding instead of hiding it behind a chat box.',
+			tags: ['Next.js', 'TypeScript', 'RAG', 'pgvector', 'OpenAI / Anthropic'],
+			highlights: [
+				'Real dense retrieval with literal candidate expansion and optional reranking over uploaded docs.',
+				'Deterministic routing between docs-only, docs-plus-context, and human-review, with claim-level citations.',
+				'Treats AI fallibility as a first-class needs_human_review state; ships with ADRs, a threat model, and a verify gate.'
+			],
+			repo: 'https://github.com/richardlitang/support-copilot',
+			live: null
 		},
 		{
-			url: 'https://litang.dev',
-			image: portfolio,
-			title: 'Portfolio',
-			description: 'Personal website made with Svelte'
+			title: 'Scriptorium',
+			blurb:
+				'A local-first video studio for planning, narrating, and rendering videos from structured project data.',
+			tags: ['TypeScript', 'MCP', 'Zod', 'Remotion', 'CLI'],
+			highlights: [
+				'Multi-surface system: a Studio web app, a CLI, an MCP server, provider adapters, and shared domain schemas.',
+				'AI turns a story into a structured production plan; narration runs locally and renders through Remotion.',
+				'Guarded by a full quality gate (pnpm verify) and a deterministic portfolio proof.'
+			],
+			repo: 'https://github.com/richardlitang/scriptorium-video',
+			live: null
 		},
 		{
-			url: 'https://github.com/heisenberglar/one-earth-api',
-			image: earth,
-			title: 'One Earth API',
-			description: 'API using Go, Postgresql, and Docker'
+			title: 'ChurnAdapter',
+			blurb:
+				'A churn-modeling pipeline that ingests any customer table and keeps the LLM out of the actual prediction.',
+			tags: ['Python', 'XGBoost', 'SHAP', 'LLM'],
+			highlights: [
+				'The LLM is used only at the semantic boundary — mapping an arbitrary table onto a standard feature contract.',
+				'Prediction stays classical ML: a gradient-boosted model trained per dataset, with SHAP explanations.',
+				'Ingests structurally different tables with no hand-written column mappings, validated on a held-out sample.'
+			],
+			repo: 'https://github.com/richardlitang/churn-adapter',
+			live: null
 		},
 		{
-			url: 'https://github.com/heisenberglar/resource-web',
-			image: resource,
-			title: 'ResourcePortal',
-			description: 'Full stack app to share and rate the best learning resources'
+			title: 'StackHunt',
+			blurb:
+				'A programmatic-SEO platform with an agent that researches software alternatives and publishes comparison pages.',
+			tags: ['Astro', 'React', 'Supabase / pgvector', 'Gemini', 'Serper'],
+			highlights: [
+				'A "Hunter Agent" autonomously researches tools, analyzes reviews, and publishes structured comparisons.',
+				'Semantic search over the catalog via pgvector; invisible Turnstile for bot protection.'
+			],
+			repo: 'https://github.com/richardlitang/stackhunt',
+			live: null
+		},
+		{
+			title: 'Bound',
+			blurb:
+				'A commitment tool for ADHD brains, built as a Chrome extension — not another to-do list.',
+			tags: ['TypeScript', 'Chrome MV3', 'Vite'],
+			highlights: [
+				'Every new tab shows the single task you are bound to, turning the drift moment into a refocus.',
+				'A capture-to-"Next up" flow keeps planning fast without breaking the current commitment.'
+			],
+			repo: null,
+			live: null
 		}
 	];
-
-	const doubledProjects = [...projects, ...projects];
 </script>
 
 <Section --bgColor="var(--bg_3)" --padding="8rem">
 	<InView>
-		<p class="section-title">Projects I've made</p>
+		<p class="section-title">Selected work</p>
 	</InView>
-	<InView --delay="1s">
-		<div class="projects-contents">
-			{#each doubledProjects as { url, image, title, description }}
-				<div class="projects-entry">
-					<a href={url} target="_blank" rel="noreferrer">
-						<img src={image} alt={title} />\
-						<span>
-							<p class="projects-title">{title}</p>
-							<p>{description}</p>
-						</span>
-					</a>
-				</div>
-			{/each}
-		</div>
-	</InView>
+	<div class="projects-grid">
+		{#each projects as { title, blurb, tags, highlights, repo, live }, i}
+			<InView --delay={`${0.15 * i}s`}>
+				<article class="card">
+					<div class="card-head">
+						<h3>{title}</h3>
+						<div class="card-links">
+							{#if repo}
+								<a href={repo} target="_blank" rel="noreferrer" aria-label={`${title} on GitHub`}>
+									<img src={github} alt="" />
+								</a>
+							{/if}
+							{#if live}
+								<a href={live} target="_blank" rel="noreferrer" class="live">
+									Live <img src={arrowright} alt="" />
+								</a>
+							{/if}
+						</div>
+					</div>
+					<p class="card-blurb">{blurb}</p>
+					<ul class="card-highlights">
+						{#each highlights as point}
+							<li>{point}</li>
+						{/each}
+					</ul>
+					<div class="card-tags">
+						{#each tags as tag}
+							<span class="tag">{tag}</span>
+						{/each}
+					</div>
+				</article>
+			</InView>
+		{/each}
+	</div>
 </Section>
 
 <style>
-	.projects-contents {
-		--max-size: 20rem;
-		--gap: calc(1.5vw + 1rem);
-		gap: var(--gap);
-
-		margin: calc(var(--gap) * 2);
-		display: flex;
-		text-align: center;
-		display: flex;
-		animation: move-card 15s linear infinite;
-	}
-
 	.section-title {
 		color: var(--bg_0);
 		margin-bottom: 3rem;
 	}
-	.projects-contents:hover {
-		animation-play-state: paused;
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: calc(1vw + 1.25rem);
+		max-width: 68rem;
+		margin: 0 auto;
 	}
 
-	@keyframes move-card {
-		0% {
-			transform: translateX(0);
-		}
-		100% {
-			transform: translateX(calc((var(--max-size) + var(--gap)) * -4));
-		}
-	}
-
-	a {
-		overflow: hidden;
-		display: flex;
-		overflow: hidden;
-		position: relative;
-		aspect-ratio: 16 / 9;
-		border-radius: var(--font-md);
-		box-shadow: 4px 6px var(--bg_2);
-		max-width: var(--max-size);
-		max-height: var(--max-size);
-		font-size: var(--font-md);
-	}
-
-	a img {
-		scale: 1.01;
-	}
-
-	span {
-		position: absolute;
+	.card {
 		display: flex;
 		flex-flow: column;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
 		height: 100%;
-		color: white;
-		backdrop-filter: blur(2px) brightness(30%);
-		opacity: 0;
+		background: var(--bg_1);
+		color: var(--text_1);
+		border-radius: calc(0.5vw + 0.5rem);
+		box-shadow: 4px 6px var(--bg_2);
+		padding: calc(1vw + 1.5rem);
 	}
 
-	span p {
-		max-width: 80%;
-	}
-	a:hover span {
-		opacity: 1;
+	.card-head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 0.75rem;
 	}
 
-	@media (min-width: 400px) {
-		.projects-contents {
-			--max-size: 25rem;
-			animation: move-card 20s linear infinite;
+	.card-head h3 {
+		font-family: var(--font--heading);
+		font-size: var(--font-h4);
+		line-height: 1.1;
+	}
+
+	.card-links {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		flex-shrink: 0;
+	}
+
+	.card-links a {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+		color: inherit;
+		text-decoration: none;
+		font-size: var(--font-sm);
+	}
+
+	.card-links img {
+		width: var(--font-md);
+		height: var(--font-md);
+		object-fit: contain;
+	}
+
+	.card-links a:hover {
+		opacity: 0.7;
+	}
+
+	.card-links .live img {
+		width: var(--font-sm);
+		height: var(--font-sm);
+	}
+
+	.card-blurb {
+		font-size: var(--font-md);
+		line-height: 1.6;
+		margin-bottom: 1.25rem;
+	}
+
+	.card-highlights {
+		list-style: none;
+		padding: 0;
+		margin: 0 0 1.5rem;
+		display: flex;
+		flex-flow: column;
+		gap: 0.6rem;
+		flex: 1;
+	}
+
+	.card-highlights li {
+		position: relative;
+		padding-left: 1.25rem;
+		font-size: var(--font-sm);
+		line-height: 1.55;
+	}
+
+	.card-highlights li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.5em;
+		width: 0.4rem;
+		height: 0.4rem;
+		border-radius: 50%;
+		background: var(--primary);
+	}
+
+	.card-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: auto;
+	}
+
+	.tag {
+		display: inline-flex;
+		font-size: var(--font-xs);
+		padding: 0.3rem 0.7rem;
+		border-radius: 2rem;
+		background: var(--bg_0);
+		color: var(--text_2);
+		white-space: nowrap;
+	}
+
+	@media (min-width: 720px) {
+		.projects-grid {
+			grid-template-columns: 1fr 1fr;
 		}
 	}
 </style>
