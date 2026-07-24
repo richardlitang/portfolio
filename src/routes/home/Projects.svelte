@@ -4,9 +4,16 @@
 	import github from '$lib/icons/github.svg';
 	import arrowright from '$lib/icons/arrowright.svg';
 
+	import support from './projects/support.png';
+	import scriptorium from './projects/scriptorium.png';
+	import churn from './projects/churn.png';
+	import stackhunt from './projects/stackhunt.png';
+	import bound from './projects/bound.png';
+
 	const projects = [
 		{
 			title: 'Support Copilot',
+			image: support,
 			blurb:
 				'A support-investigation workspace that shows its retrieval and grounding instead of hiding it behind a chat box.',
 			tags: ['Next.js', 'TypeScript', 'RAG', 'pgvector', 'OpenAI / Anthropic'],
@@ -19,7 +26,35 @@
 			live: null
 		},
 		{
+			title: 'ChurnAdapter',
+			image: churn,
+			blurb:
+				'A churn-modeling pipeline that ingests any customer table and keeps the LLM out of the actual prediction.',
+			tags: ['Python', 'FastAPI', 'XGBoost', 'SHAP', 'LLM'],
+			highlights: [
+				'The LLM is used only at the semantic boundary — mapping an arbitrary table onto a standard feature contract.',
+				'Prediction stays classical ML: a gradient-boosted model trained per dataset, with SHAP explanations.',
+				'Ingests structurally different tables with no hand-written column mappings, validated on a held-out sample.'
+			],
+			repo: 'https://github.com/richardlitang/churn-adapter',
+			live: null
+		},
+		{
+			title: 'StackHunt',
+			image: stackhunt,
+			blurb:
+				'A programmatic-SEO platform with an agent that researches software alternatives and publishes comparison pages.',
+			tags: ['Astro', 'React', 'Supabase / pgvector', 'Gemini', 'Serper'],
+			highlights: [
+				'A "Hunter Agent" autonomously researches tools, analyzes reviews, and publishes structured comparisons.',
+				'Semantic search over the catalog via pgvector; invisible Turnstile for bot protection.'
+			],
+			repo: 'https://github.com/richardlitang/stackhunt',
+			live: 'https://stackhunt.io'
+		},
+		{
 			title: 'Scriptorium',
+			image: scriptorium,
 			blurb:
 				'A local-first video studio for planning, narrating, and rendering videos from structured project data.',
 			tags: ['TypeScript', 'MCP', 'Zod', 'Remotion', 'CLI'],
@@ -32,32 +67,8 @@
 			live: null
 		},
 		{
-			title: 'ChurnAdapter',
-			blurb:
-				'A churn-modeling pipeline that ingests any customer table and keeps the LLM out of the actual prediction.',
-			tags: ['Python', 'XGBoost', 'SHAP', 'LLM'],
-			highlights: [
-				'The LLM is used only at the semantic boundary — mapping an arbitrary table onto a standard feature contract.',
-				'Prediction stays classical ML: a gradient-boosted model trained per dataset, with SHAP explanations.',
-				'Ingests structurally different tables with no hand-written column mappings, validated on a held-out sample.'
-			],
-			repo: 'https://github.com/richardlitang/churn-adapter',
-			live: null
-		},
-		{
-			title: 'StackHunt',
-			blurb:
-				'A programmatic-SEO platform with an agent that researches software alternatives and publishes comparison pages.',
-			tags: ['Astro', 'React', 'Supabase / pgvector', 'Gemini', 'Serper'],
-			highlights: [
-				'A "Hunter Agent" autonomously researches tools, analyzes reviews, and publishes structured comparisons.',
-				'Semantic search over the catalog via pgvector; invisible Turnstile for bot protection.'
-			],
-			repo: 'https://github.com/richardlitang/stackhunt',
-			live: null
-		},
-		{
 			title: 'Bound',
+			image: bound,
 			blurb:
 				'A commitment tool for ADHD brains, built as a Chrome extension — not another to-do list.',
 			tags: ['TypeScript', 'Chrome MV3', 'Vite'],
@@ -76,34 +87,39 @@
 		<p class="section-title">Selected work</p>
 	</InView>
 	<div class="projects-grid">
-		{#each projects as { title, blurb, tags, highlights, repo, live }, i}
+		{#each projects as { title, image, blurb, tags, highlights, repo, live }, i}
 			<InView --delay={`${0.15 * i}s`}>
 				<article class="card">
-					<div class="card-head">
-						<h3>{title}</h3>
-						<div class="card-links">
-							{#if repo}
-								<a href={repo} target="_blank" rel="noreferrer" aria-label={`${title} on GitHub`}>
-									<img src={github} alt="" />
-								</a>
-							{/if}
-							{#if live}
-								<a href={live} target="_blank" rel="noreferrer" class="live">
-									Live <img src={arrowright} alt="" />
-								</a>
-							{/if}
-						</div>
+					<div class="card-media">
+						<img src={image} alt={`${title} screenshot`} loading="lazy" />
 					</div>
-					<p class="card-blurb">{blurb}</p>
-					<ul class="card-highlights">
-						{#each highlights as point}
-							<li>{point}</li>
-						{/each}
-					</ul>
-					<div class="card-tags">
-						{#each tags as tag}
-							<span class="tag">{tag}</span>
-						{/each}
+					<div class="card-body">
+						<div class="card-head">
+							<h3>{title}</h3>
+							<div class="card-links">
+								{#if live}
+									<a href={live} target="_blank" rel="noreferrer" class="live">
+										Live <img src={arrowright} alt="" />
+									</a>
+								{/if}
+								{#if repo}
+									<a href={repo} target="_blank" rel="noreferrer" aria-label={`${title} on GitHub`}>
+										<img src={github} alt="" />
+									</a>
+								{/if}
+							</div>
+						</div>
+						<p class="card-blurb">{blurb}</p>
+						<ul class="card-highlights">
+							{#each highlights as point}
+								<li>{point}</li>
+							{/each}
+						</ul>
+						<div class="card-tags">
+							{#each tags as tag}
+								<span class="tag">{tag}</span>
+							{/each}
+						</div>
 					</div>
 				</article>
 			</InView>
@@ -129,10 +145,31 @@
 		display: flex;
 		flex-flow: column;
 		height: 100%;
+		overflow: hidden;
 		background: var(--bg_1);
 		color: var(--text_1);
 		border-radius: calc(0.5vw + 0.5rem);
 		box-shadow: 4px 6px var(--bg_2);
+	}
+
+	.card-media {
+		aspect-ratio: 16 / 10;
+		overflow: hidden;
+		background: var(--bg_2);
+		border-bottom: 1px solid var(--bg_2);
+	}
+
+	.card-media img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: top center;
+	}
+
+	.card-body {
+		display: flex;
+		flex-flow: column;
+		flex: 1;
 		padding: calc(1vw + 1.5rem);
 	}
 
@@ -153,7 +190,7 @@
 	.card-links {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
+		gap: 0.9rem;
 		flex-shrink: 0;
 	}
 
