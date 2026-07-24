@@ -16,6 +16,7 @@
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/adapter-static": "^2.0.3",
 		"@sveltejs/kit": "^1.5.0",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
@@ -32,6 +33,9 @@
 		"vitest": "^0.25.3"
 	},
 	"type": "module",
+	"engines": {
+		"node": "22.x"
+	},
 	"dependencies": {
 		"@fontsource/cormorant": "^4.5.10",
 		"@fontsource/italiana": "^4.5.11",

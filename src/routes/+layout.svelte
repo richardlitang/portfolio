@@ -10,8 +10,10 @@
 	<footer>
 		<p>
 			Built by Richard Litang. It's free and
-			<a target="_blank" rel="noreferrer" href="https://github.com/richardlitang/portfolio"
-				>open source.</a
+			<a
+				target="_blank"
+				rel="noreferrer"
+				href="https://github.com/richardlitang/richardlitang.github.io">open source.</a
 			>
 		</p>
 	</footer>

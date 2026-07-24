@@ -26,7 +26,7 @@
 		property="og:description"
 		content="Full-stack engineer building AI-grounded products end to end."
 	/>
-	<meta property="og:url" content="https://litang.dev/" />
+	<meta property="og:url" content="https://richardlitang.github.io/" />
 	<meta property="og:image" />
 </svelte:head>
 
