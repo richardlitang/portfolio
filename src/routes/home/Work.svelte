@@ -14,12 +14,13 @@
 			title: 'Software Engineer',
 			meta: 'Melbourne, AU (Remote) · Oct 2024 – Feb 2026',
 			tasks: [
-				'Led "Lighthouse," a delivery stream for urgent customer requests and market-localized workflows — shipping the workflow, dashboard, and configuration changes behind the company’s US market launch.',
-				'Built AI-assisted product workflows across template generation, document analysis, scheduling, and action suggestions.',
-				'Delivered the subcontractor Plant & Equipment module (registers, checklist linking, multi-step review), enabling hundreds of construction companies to self-manage equipment.',
-				'Drove the Photos Uplift: moved heavy exports to async background jobs and rebuilt the UX with drag-and-drop folders, annotations, threads, and metadata stamping.',
-				'Improved reliability and performance — optimizing React forms, tuning GraphQL queries and caching, replacing server-fetched translations with build-time bundling, extending Sentry coverage, and eliminating cascading retry loops.',
-				'Shipped 200+ fixes and features, onboarded engineers, and won the company hackathon with an AI bulk-import prototype that cut setup from hours to minutes.'
+				'Led “Lighthouse,” a dedicated delivery stream for urgent customer requests and market-localized workflows, shipping the workflow, dashboard, and configuration changes that supported the company’s US market launch.',
+				'Worked on AI-assisted product workflows across template generation, document analysis, scheduling, and action suggestions, using AI to improve existing operational flows.',
+				'Delivered and maintained the subcontractor Plant & Equipment module (registers, checklist linking, multi-step review workflows), enabling hundreds of construction companies and their subcontractors to self-manage equipment.',
+				'Drove the Photos Uplift project from design to implementation: moved heavy photo exports to async background jobs and rebuilt the UX with drag-and-drop folder organization, annotations, conversation threads, and metadata stamping.',
+				'Improved platform reliability and performance by optimizing React forms, tuning GraphQL queries and caching, replacing slow server-fetched translations with build-time bundling, extending Sentry instrumentation to critical paths, and eliminating cascading API retry loops.',
+				'Helped raise team velocity by onboarding engineers and pair programming to unblock peers; served as a domain expert across multiple modules while contributing 200+ shipped fixes, features, and improvements.',
+				'Won the company hackathon leading a cross-functional team: an AI-assisted bulk import prototype that mapped customer spreadsheet data to internal schemas, cutting setup work from hours to minutes.'
 			]
 		},
 		{
@@ -27,20 +28,19 @@
 			url: 'https://www.dashlabs.ai/',
 			domain: 'dashlabs.ai',
 			image: dashlabsShot,
-			title: 'Full Stack Engineer · YC W21',
+			title: 'Full Stack Software Engineer · YC W21',
 			meta: 'Manila, PH (Remote) · Mar 2022 – Sep 2024',
 			tasks: [
-				'Owned the EHR/EMR modules — result entry, patient intake, the patient portal, and B2B client portals — and contributed to result certificates, appointments, the POS system, and auth.',
-				'Built a patient queue management system from zero to one, cutting wait times and unlocking a new B2B revenue stream.',
-				'Cut backend load with caching, background job queues, and MongoDB schema/index tuning — enabling a database-tier downgrade that reduced infra cost.',
-				'Migrated search to MongoDB Atlas Search, improving relevance and scalability.',
-				'Refactored core APIs for high-volume clinical lab workflows, improving throughput up to 10x at peak hours.'
+				'Owned the EHR/EMR modules for patient result entry, patient information intake, the patient portal, and B2B client portals; contributed across the platform including dynamic result certificates, appointments, the POS system, and auth.',
+				'Built a fully integrated patient queue management system from zero to one, streamlining laboratory operations, reducing patient wait times, and unlocking a new B2B revenue stream.',
+				'Reduced backend load by adding caching to critical code paths, offloading heavy operations to background job queues, tuning MongoDB schemas and indexes, and optimizing high-volume queries — enabling a database tier downgrade that cut infrastructure costs.',
+				'Migrated the platform’s search workflows to MongoDB Atlas Search, improving search relevance and scalability while reducing pressure on primary database queries.',
+				'Refactored core APIs supporting high-volume clinical laboratory workflows, removing execution bottlenecks and improving throughput by up to 10x during peak operational hours.'
 			]
 		}
 	];
 
 	let current = 'BuildPass';
-	$: role = roles.find((r) => r.company === current) ?? roles[0];
 </script>
 
 <Section id="work" class="on-dark" --bgColor="var(--pine)">
@@ -62,27 +62,34 @@
 				{/each}
 			</div>
 
-			<div class="panel">
-				<div class="detail">
-					<p class="role-title">{role.title}</p>
-					<p class="role-meta">{role.meta}</p>
-					<ul>
-						{#each role.tasks as task}
-							<li>{task}</li>
-						{/each}
-					</ul>
-				</div>
+			<!-- Every role is rendered so the full history is in the served HTML
+			     (crawlers, link previews, no-JS). JS only decides which is shown. -->
+			{#each roles as role}
+				<div class="panel" class:is-active={current === role.company}>
+					<div class="detail">
+						<p class="panel-company">{role.company}</p>
+						<p class="role-title">{role.title}</p>
+						<p class="role-meta">{role.meta}</p>
+						<ul>
+							{#each role.tasks as task}
+								<li>{task}</li>
+							{/each}
+						</ul>
+					</div>
 
-				<a class="site-card" href={role.url} target="_blank" rel="noreferrer">
-					<img src={role.image} alt={`${role.company} website`} loading="lazy" />
-					<span class="caption">{role.domain} ↗</span>
-				</a>
-			</div>
+					<a class="site-card" href={role.url} target="_blank" rel="noreferrer">
+						<img src={role.image} alt={`${role.company} website`} loading="lazy" />
+						<span class="caption">{role.domain} ↗</span>
+					</a>
+				</div>
+			{/each}
 		</InView>
 		<InView>
 			<p class="prior">
-				Earlier: three years as a power-plant shift supervisor, leading a 24/7 operations team to a
-				zero-shutdown record — where the reliability and root-cause habits started.
+				Earlier: nearly five years in power plant operations (2017–2021), leading a shift team of
+				engineers and operators in a 24/7 continuous-process plant — with a three-year zero-shutdown
+				record built on real-time incident response, root-cause analysis, and disciplined handoffs.
+				Where the reliability habits started.
 			</p>
 		</InView>
 	</div>
@@ -133,6 +140,33 @@
 		grid-template-columns: 1fr;
 		gap: clamp(1.75rem, 4vw, 3.5rem);
 		align-items: start;
+	}
+
+	/* With JS, the tabs pick one role. Without it, all roles stack and each
+	   keeps its own company heading. */
+	:global(html:not(.no-js)) .panel:not(.is-active) {
+		display: none;
+	}
+
+	:global(html:not(.no-js)) .panel-company {
+		display: none;
+	}
+
+	:global(html.no-js) .tabs {
+		display: none;
+	}
+
+	.panel + .panel {
+		margin-top: clamp(2.5rem, 5vw, 4rem);
+	}
+
+	.panel-company {
+		font-family: var(--font--mono);
+		font-size: var(--font-xs);
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: var(--amber);
+		margin-bottom: 0.5rem;
 	}
 
 	.role-title {
