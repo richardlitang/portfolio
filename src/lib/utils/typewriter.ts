@@ -7,8 +7,13 @@
 // full text flash before typing begins.
 export default function typewriter(node: HTMLElement, { speed = 45 } = {}) {
 	const text = node.textContent ?? '';
-	node.textContent = '';
 	node.style.visibility = 'visible';
+
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		return {};
+	}
+
+	node.textContent = '';
 
 	let i = 0;
 	const id = window.setInterval(() => {

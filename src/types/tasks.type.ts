@@ -1,3 +1,3 @@
 export type TasksType = {
-    tasks: string[]
-}
+	tasks: string[];
+};

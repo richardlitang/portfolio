@@ -14,7 +14,7 @@
 	}
 
 	.in-view {
-		animation: 3s lineUp ease-out forwards;
+		animation: 0.7s lineUp ease-out forwards;
 		animation-delay: var(--delay, 0);
 	}
 
@@ -27,18 +27,11 @@
 	@keyframes lineUp {
 		0% {
 			opacity: 0;
-			transform: translateY(80%);
-		}
-		20% {
-			opacity: 0;
-		}
-		50% {
-			opacity: 0.8;
-			transform: translateY(20%);
+			transform: translateY(24px);
 		}
 		100% {
 			opacity: 1;
-			transform: translateY(0%);
+			transform: translateY(0);
 		}
 	}
 </style>

@@ -1,156 +1,162 @@
 <script>
-	import { slide } from 'svelte/transition';
-	import { onMount } from 'svelte';
 	import typewriter from '$lib/utils/typewriter';
-	import Socials from '$lib/components/Socials.svelte';
-
-	let ready = false;
-
-	onMount(() => (ready = true));
 </script>
 
 <section class="hero">
-	<div class="hero-contents">
-		<div class="hero-text">
-			<span class="hero-intro">Hi, it's</span>
-			<span class="hero-name">Richard</span>
-			<div class="hero-tagline">
-				<p class="js-typewriter" use:typewriter>
-					Full-stack engineer building AI-grounded products end to end
-				</p>
-			</div>
-			<span class="hero-location">Belgium</span>
+	<div class="inner">
+		<div class="hero-main">
+			<p class="eyebrow">shift log — Belgium</p>
+			<h1>Richard Litang<span class="mark">.</span></h1>
+			<p class="log js-typewriter" use:typewriter>
+				Full-stack engineer building AI-grounded products end to end
+			</p>
 		</div>
+
+		<dl class="strip">
+			<div class="readout">
+				<dt>status</dt>
+				<dd>open to senior roles</dd>
+			</div>
+			<div class="readout">
+				<dt>focus</dt>
+				<dd>SaaS · AI-enabled products</dd>
+			</div>
+			<div class="readout">
+				<dt>links</dt>
+				<dd>
+					<a href="https://github.com/richardlitang" target="_blank" rel="noreferrer">github</a>
+					<span class="sep">/</span>
+					<a href="https://linkedin.com/in/richardlitang" target="_blank" rel="noreferrer"
+						>linkedin</a
+					>
+					<span class="sep">/</span>
+					<a href="mailto:richardjasonlitang@gmail.com">email</a>
+				</dd>
+			</div>
+		</dl>
 	</div>
-	{#if ready}
-		<ul class="hero-email" transition:slide={{ delay: 3500 }}>
-			<li>
-				<a href="mailto:richardjasonlitang@gmail.com">richardjasonlitang @ gmail.com</a>
-			</li>
-		</ul>
-	{/if}
-	{#if ready}
-		<Socials />
-	{/if}
 </section>
 
 <style>
 	.hero {
-		max-width: 100vw;
-		min-height: 93vh;
-		background: var(--bg_1);
-
-		position: relative;
+		min-height: calc(92vh - 3rem);
+		display: flex;
 	}
 
-	.hero-contents {
-		position: relative;
-		padding: 5vh 2vw;
-		top: calc(45vh - var(--font-h1) * 5);
+	.inner {
+		max-width: var(--container);
+		width: 100%;
 		margin: 0 auto;
-		padding-bottom: 10rem;
-		font-family: var(--font--title);
+		padding: 0 clamp(1rem, 4vw, 2rem);
+		display: flex;
+		flex-flow: column;
 	}
 
-	.hero-text {
-		margin: 0 auto;
+	.hero-main {
+		margin: auto 0;
+		padding-top: clamp(3rem, 8vh, 6rem);
 	}
 
-	.hero-intro {
-		margin: 0.5rem 0;
-		font-size: var(--font-h4);
-		justify-content: center;
+	h1 {
+		font-family: var(--font--display);
+		font-weight: 700;
+		font-size: var(--font-h1);
+		letter-spacing: -0.03em;
+		line-height: 0.98;
+		margin: 0 0 1.4rem;
 	}
 
-	.hero-name {
-		font-family: var(--font--heading);
-		margin: 0 auto;
-		line-height: 1;
-		font-size: calc(8vw + 2rem);
-		justify-content: center;
+	.mark {
+		color: var(--amber);
 	}
 
-	.hero-tagline {
-		display: grid;
-		place-items: center;
-		min-height: 2.5em;
+	.log {
+		font-family: var(--font--mono);
+		font-size: var(--font-lg);
+		color: var(--ink-2);
+		max-width: 34em;
+		min-height: 1.6em;
+		line-height: 1.5;
 	}
 
-	/* JS present: hide until the typewriter action reveals and types it in. */
+	.log::before {
+		content: '> ';
+		color: var(--amber);
+	}
+
+	.log::after {
+		content: '▍';
+		color: var(--amber);
+		animation: blink 1.1s steps(1) infinite;
+	}
+
+	/* JS present: hold the line invisible until the typewriter starts. */
 	:global(html:not(.no-js)) .js-typewriter {
 		visibility: hidden;
 	}
-	.hero-tagline p {
-		text-align: center;
-		font-size: var(--font-h4);
-		line-height: 1.2;
-		margin: 1rem auto;
-		max-width: 20em;
-		animation: blinking 4s 1;
+
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
 	}
 
-	.hero-location {
-		justify-content: center;
-		font-size: var(--font-sm);
-		font-family: var(--font--body);
-		letter-spacing: 0.08em;
-		text-transform: uppercase;
-		margin-top: 1.5rem;
-		opacity: 0.7;
+	.strip {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem 2.5rem;
+		border-top: 1px solid var(--line);
+		margin: 0 0 clamp(1.5rem, 4vh, 3rem);
+		padding-top: 1.25rem;
+		font-family: var(--font--mono);
+		font-size: var(--font-xs);
 	}
 
-	.hero-email {
+	.readout {
 		display: flex;
 		flex-flow: column;
-		position: absolute;
-		top: calc(1vw + 0.5rem);
-		right: calc(1vw + 0.5rem);
-		--size: calc(1vw + 1rem);
-		gap: calc(var(--size) / 2);
-		width: var(--size);
+		gap: 0.3rem;
 	}
 
-	.hero-email a {
-		writing-mode: vertical-rl;
-		color: inherit;
-		text-decoration: none;
+	dt {
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		color: var(--ink-2);
+	}
+
+	dd {
+		margin: 0;
 		font-size: var(--font-sm);
+		color: var(--ink);
 	}
 
-	.hero-email li::before {
-		content: '';
-		display: block;
-		width: 1px;
-		height: calc(var(--size) * 3);
-		margin: 0 auto;
-		margin-bottom: calc(var(--size) / 2);
-		background-color: black;
+	dd a {
+		color: var(--ink);
+		text-decoration: none;
+		border-bottom: 1px solid var(--amber);
+		padding-bottom: 1px;
 	}
 
-	@keyframes blinking {
-		0% {
-			border-right: transparent;
-		}
-		50% {
-			border-right: 2px solid black;
-		}
-		100% {
-			border-right: transparent;
+	dd a:hover {
+		color: var(--amber);
+	}
+
+	.sep {
+		color: var(--ink-2);
+		margin: 0 0.35rem;
+	}
+
+	@media (min-width: 720px) {
+		.strip {
+			grid-template-columns: repeat(3, auto);
+			justify-content: start;
+			gap: 1rem 4.5rem;
 		}
 	}
 
-	@media (min-width: 768px) {
-		.hero {
-			min-height: 100vh;
-		}
-		.hero-contents {
-			max-width: calc(120rem - 2);
-			padding-bottom: 0rem;
-			top: calc(50vh - var(--font-h1) * 3.25);
-		}
-
-		.hero-text {
-			text-align: left;
+	@media (prefers-reduced-motion: reduce) {
+		.log::after {
+			animation: none;
 		}
 	}
 </style>

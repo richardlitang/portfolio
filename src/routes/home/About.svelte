@@ -3,12 +3,13 @@
 	import Section from '$lib/components/Section.svelte';
 </script>
 
-<Section --padding="8rem">
-	<div class="flex">
+<Section id="about" --bgColor="var(--paper-2)">
+	<div class="about">
 		<InView>
-			<p class="section-title">About me</p>
+			<p class="eyebrow">about</p>
+			<p class="section-title">The messy middle is where I work best.</p>
 		</InView>
-		<div class="flex-item">
+		<div class="copy">
 			<InView>
 				<p>
 					I'm a full-stack software engineer working mainly in TypeScript, Node.js, React, and
@@ -18,7 +19,7 @@
 					not just demos.
 				</p>
 			</InView>
-			<InView --delay="0.3s">
+			<InView --delay="0.15s">
 				<p>
 					I'm strongest in the messy middle of product engineering: unclear workflows, operational
 					bottlenecks, and features that are technically “done” but still frustrating to use. Give
@@ -26,13 +27,12 @@
 					it through until it's genuinely usable.
 				</p>
 			</InView>
-			<InView --delay="0.6s">
+			<InView --delay="0.3s">
 				<p>
-					Before software, I worked in the energy industry, promoted to shift supervisor within a
-					few years — where reliability, ownership, and clean handoffs mattered every shift. That
-					still shapes how I work: I take responsibility for ambiguous problems, coordinate across
-					moving parts, and make sure things hold up under real conditions. I'm based in Belgium,
-					open to software engineering roles in SaaS and AI-enabled products.
+					Before software, I ran shifts in a 24/7 power plant — promoted to shift supervisor within
+					a few years, in a room where reliability, ownership, and clean handoffs mattered every
+					single shift. That still shapes how I work: I take responsibility for ambiguous problems,
+					coordinate across moving parts, and make sure things hold up under real conditions.
 				</p>
 			</InView>
 		</div>
@@ -40,30 +40,29 @@
 </Section>
 
 <style>
-	.flex {
-		margin: 0 auto;
-		display: flex;
-		flex-flow: column;
+	.about {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1rem clamp(2rem, 6vw, 5rem);
 	}
 
 	.section-title {
-		margin-bottom: 2rem;
+		max-width: 14em;
 	}
 
-	.flex-item {
-		margin: 0 auto;
-		max-width: 80vw;
+	.copy {
+		max-width: 38em;
 	}
 
-	.flex-item p {
-		line-height: 1.8;
+	.copy p {
+		line-height: 1.75;
 		font-size: var(--font-md);
-		margin-bottom: var(--font-lg);
+		margin-bottom: 1.4rem;
 	}
 
-	@media (min-width: 400px) {
-		.flex-item {
-			max-width: 32em;
+	@media (min-width: 900px) {
+		.about {
+			grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
 		}
 	}
 </style>

@@ -1,12 +1,16 @@
 <script>
 	import InView from '$lib/components/InView.svelte';
 	import Section from '$lib/components/Section.svelte';
-	import arrowright from '$lib/icons/arrowright.svg';
+
+	import buildpassShot from './work/buildpass.png';
+	import dashlabsShot from './work/dashlabs.png';
 
 	const roles = [
 		{
 			company: 'BuildPass',
 			url: 'https://www.buildpass.ai/us',
+			domain: 'buildpass.ai',
+			image: buildpassShot,
 			title: 'Software Engineer',
 			meta: 'Melbourne, AU (Remote) · Oct 2024 – Feb 2026',
 			tasks: [
@@ -21,6 +25,8 @@
 		{
 			company: 'Dashlabs.ai',
 			url: 'https://www.dashlabs.ai/',
+			domain: 'dashlabs.ai',
+			image: dashlabsShot,
 			title: 'Full Stack Engineer · YC W21',
 			meta: 'Manila, PH (Remote) · Mar 2022 – Sep 2024',
 			tasks: [
@@ -37,39 +43,40 @@
 	$: role = roles.find((r) => r.company === current) ?? roles[0];
 </script>
 
-<Section --padding="2rem" --bgColor="var(--bg_1)">
-	<div class="work-parent">
+<Section id="work" class="on-dark" --bgColor="var(--pine)">
+	<div class="work">
 		<InView>
-			<p class="section-title">Where I've worked</p>
+			<p class="eyebrow">work log</p>
+			<p class="section-title">Where I've shipped.</p>
 		</InView>
 		<InView>
-			<div class="work">
-				<div class="work-animation">
-					<div class="work-tabs">
-						{#each roles as { company }}
-							<button
-								class={current === company ? 'selected' : ''}
-								aria-selected={current === company}
-								on:click={() => (current = company)}>{company}</button
-							>
+			<div class="tabs" role="tablist">
+				{#each roles as { company }}
+					<button
+						role="tab"
+						class="tab"
+						class:selected={current === company}
+						aria-selected={current === company}
+						on:click={() => (current = company)}>{company}</button
+					>
+				{/each}
+			</div>
+
+			<div class="panel">
+				<div class="detail">
+					<p class="role-title">{role.title}</p>
+					<p class="role-meta">{role.meta}</p>
+					<ul>
+						{#each role.tasks as task}
+							<li>{task}</li>
 						{/each}
-					</div>
-					<div class="work-box">
-						<a class="role-company" href={role.url} target="_blank" rel="noreferrer"
-							>{role.company} ↗</a
-						>
-						<p class="role-title">{role.title}</p>
-						<p class="role-meta">{role.meta}</p>
-						<div class="work-details">
-							{#each role.tasks as task}
-								<span>
-									<img src={arrowright} alt="" />
-									{task}
-								</span>
-							{/each}
-						</div>
-					</div>
+					</ul>
 				</div>
+
+				<a class="site-card" href={role.url} target="_blank" rel="noreferrer">
+					<img src={role.image} alt={`${role.company} website`} loading="lazy" />
+					<span class="caption">{role.domain} ↗</span>
+				</a>
 			</div>
 		</InView>
 		<InView>
@@ -83,107 +90,144 @@
 
 <style>
 	.work {
-		max-width: fit-content;
-		border-radius: 0.5rem;
-		padding: calc(2.5vw + 1rem) calc(2.5vw + 1rem) 0;
-		margin: 0 auto;
-		color: var(--bg_0);
-	}
-	.work-box {
-		display: flex;
-		flex-flow: column;
-		background: var(--bg_2);
-		line-height: 2;
-
-		max-width: 34em;
-		min-height: 40vh;
-		margin: 0 auto;
-		padding: calc(3vw + 1rem) calc(2vw + 0.75rem);
-		box-shadow: 2px 5px var(--bg_3);
-
-		border-radius: calc(0.5vw + 0.25rem);
-		border-top-left-radius: 0;
-	}
-
-	.role-company {
-		display: inline-block;
-		font-size: var(--font-sm);
-		letter-spacing: 0.04em;
-		text-transform: uppercase;
-		color: var(--text_2);
-		text-decoration: none;
-		margin-bottom: 0.35rem;
-	}
-
-	.role-company:hover {
-		color: var(--bg_0);
-		text-decoration: underline;
-	}
-
-	.role-title {
-		font-family: var(--font--heading);
-		font-size: var(--font-lg);
-		line-height: 1.2;
-	}
-
-	.role-meta {
-		font-size: var(--font-sm);
-		color: var(--text_2);
-		line-height: 1.2;
-		margin-bottom: 1.5rem;
+		color: var(--pine-ink);
 	}
 
 	.section-title {
-		margin-top: 4rem;
+		color: var(--pine-ink);
 	}
 
-	.selected {
-		background-color: var(--bg_2);
-	}
-
-	.work-tabs {
+	.tabs {
 		display: flex;
-		flex-flow: row;
-		flex-wrap: wrap;
+		gap: 0.25rem;
+		border-bottom: 1px solid var(--line-dark);
+		margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 	}
 
-	.work-tabs button {
-		box-shadow: none;
-		font-size: var(--font-sm);
-		color: var(--bg_0);
-
-		min-width: calc(1vw + 7rem);
-		margin: 0;
-		border-right: solid 2px var(--bg_3);
+	.tab {
+		background: transparent;
+		border: none;
+		border-bottom: 2px solid transparent;
 		border-radius: 0;
-		border-top-right-radius: calc(0.25vw + 0.25rem);
-		border-top-left-radius: calc(0.25vw + 0.1rem);
-	}
-
-	.work-details {
+		color: var(--pine-ink-2);
+		font-family: var(--font--mono);
 		font-size: var(--font-sm);
+		font-weight: 500;
+		padding: 0.6rem 1rem;
+		margin-bottom: -1px;
 	}
 
-	.work-details img {
-		--size: var(--font-sm);
-		width: var(--size);
-		height: var(--size);
-		object-fit: contain;
-		margin-top: calc(var(--size) / 2);
-		margin-right: var(--size);
+	.tab:hover {
+		background: transparent;
+		color: var(--pine-ink);
+		transform: none;
 	}
 
-	.work-details span {
-		margin-bottom: 1rem;
+	.tab.selected {
+		color: var(--pine-ink);
+		border-bottom-color: var(--amber);
+	}
+
+	.panel {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: clamp(1.75rem, 4vw, 3.5rem);
+		align-items: start;
+	}
+
+	.role-title {
+		font-family: var(--font--display);
+		font-weight: 600;
+		font-size: var(--font-xl);
+		line-height: 1.15;
+	}
+
+	.role-meta {
+		font-family: var(--font--mono);
+		font-size: var(--font-xs);
+		color: var(--pine-ink-2);
+		margin: 0.4rem 0 1.5rem;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-flow: column;
+		gap: 0.85rem;
+	}
+
+	li {
+		position: relative;
+		padding-left: 1.4rem;
+		font-size: var(--font-sm);
+		line-height: 1.65;
+		color: var(--pine-ink);
+	}
+
+	li::before {
+		content: '›';
+		position: absolute;
+		left: 0;
+		color: var(--amber);
+		font-family: var(--font--mono);
+		font-weight: 500;
+	}
+
+	.site-card {
+		display: block;
+		text-decoration: none;
+		border: 1px solid var(--line-dark);
+		border-radius: var(--radius);
+		overflow: hidden;
+		background: var(--pine-2);
+		transition: transform 0.2s ease, border-color 0.2s ease;
+	}
+
+	.site-card:hover {
+		transform: translateY(-3px);
+		border-color: var(--amber);
+	}
+
+	.site-card img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 10;
+		object-fit: cover;
+		object-position: top center;
+	}
+
+	.caption {
+		display: block;
+		padding: 0.6rem 0.9rem;
+		font-family: var(--font--mono);
+		font-size: var(--font-xs);
+		color: var(--pine-ink-2);
+		border-top: 1px solid var(--line-dark);
+	}
+
+	.site-card:hover .caption {
+		color: var(--amber);
 	}
 
 	.prior {
-		max-width: 40em;
-		margin: 1.5rem auto 8rem;
-		padding: 0 1rem;
-		text-align: center;
+		margin-top: clamp(2rem, 4vw, 3rem);
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--line-dark);
+		max-width: 46em;
 		font-size: var(--font-sm);
-		color: var(--text_2);
+		color: var(--pine-ink-2);
 		line-height: 1.7;
+	}
+
+	@media (min-width: 900px) {
+		.panel {
+			grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+		}
+		.site-card {
+			position: sticky;
+			top: 5rem;
+		}
 	}
 </style>

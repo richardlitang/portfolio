@@ -3,9 +3,9 @@
 	import InView from '$lib/components/InView.svelte';
 
 	const groups = [
-		{ label: 'Languages', items: ['TypeScript', 'JavaScript', 'SQL', 'Python'] },
+		{ label: 'languages', items: ['TypeScript', 'JavaScript', 'SQL', 'Python'] },
 		{
-			label: 'Frontend',
+			label: 'frontend',
 			items: [
 				'React',
 				'Next.js',
@@ -18,7 +18,7 @@
 			]
 		},
 		{
-			label: 'Backend & Data',
+			label: 'backend & data',
 			items: [
 				'Node.js',
 				'Express',
@@ -33,7 +33,7 @@
 			]
 		},
 		{
-			label: 'AI Engineering',
+			label: 'ai engineering',
 			items: [
 				'OpenAI',
 				'Anthropic',
@@ -45,82 +45,70 @@
 				'MCP'
 			]
 		},
-		{ label: 'Cloud & Infra', items: ['AWS', 'Docker', 'Vercel', 'Inngest'] },
+		{ label: 'cloud & infra', items: ['AWS', 'Docker', 'Vercel', 'Inngest'] },
 		{
-			label: 'Testing & Observability',
+			label: 'testing & observability',
 			items: ['Jest', 'Vitest', 'Playwright', 'Checkly', 'Sentry', 'Datadog', 'PostHog']
 		}
 	];
 </script>
 
-<Section --padding="8rem" --bgColor="var(--bg_2)">
-	<div class="skills">
+<Section id="stack" --bgColor="var(--paper-2)">
+	<div class="stack">
 		<InView>
-			<p class="section-title">What I work with</p>
+			<p class="eyebrow">stack</p>
+			<p class="section-title">Working set.</p>
 		</InView>
-		{#each groups as { label, items }, i}
-			<InView --delay={`${0.1 * i}s`}>
-				<div class="group">
-					<p class="group-label">{label}</p>
-					<div class="chips">
-						{#each items as item}
-							<span class="chip">{item}</span>
-						{/each}
+		<div class="sheet">
+			{#each groups as { label, items }, i}
+				<InView --delay={`${0.06 * i}s`}>
+					<div class="spec">
+						<p class="spec-label">{label}</p>
+						<p class="spec-items">{items.join(' · ')}</p>
 					</div>
-				</div>
-			</InView>
-		{/each}
+				</InView>
+			{/each}
+		</div>
 	</div>
 </Section>
 
 <style>
-	.skills {
-		max-width: 48rem;
-		margin: 0 auto;
-		padding: 0.5rem 1rem;
+	.stack {
+		max-width: 56rem;
 	}
 
-	.group {
+	.sheet {
+		display: flex;
+		flex-flow: column;
+	}
+
+	.spec {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: 0.75rem;
-		padding: 1.5rem 0;
-		border-bottom: 1px solid var(--bg_3);
+		gap: 0.35rem 2rem;
+		padding: 1.1rem 0;
+		border-top: 1px solid var(--line);
 	}
 
-	.group:last-child {
-		border-bottom: none;
+	.spec-label {
+		font-family: var(--font--mono);
+		font-size: var(--font-xs);
+		font-weight: 500;
+		letter-spacing: 0.18em;
+		text-transform: uppercase;
+		color: var(--ink-2);
+		padding-top: 0.2em;
 	}
 
-	.group-label {
-		font-family: var(--font--heading);
-		font-size: var(--font-lg);
-		color: var(--bg_0);
-		line-height: 1.2;
-	}
-
-	.chips {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
-
-	.chip {
-		display: inline-flex;
+	.spec-items {
 		font-size: var(--font-sm);
-		padding: 0.35rem 0.85rem;
-		border-radius: 2rem;
-		background: var(--bg_1);
-		color: var(--text_1);
-		box-shadow: 2px 3px var(--bg_3);
-		white-space: nowrap;
+		line-height: 1.8;
+		color: var(--ink);
 	}
 
 	@media (min-width: 720px) {
-		.group {
-			grid-template-columns: 12rem 1fr;
-			gap: 1.5rem;
-			align-items: baseline;
+		.spec {
+			grid-template-columns: 14rem 1fr;
 		}
 	}
 </style>

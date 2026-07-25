@@ -27,7 +27,9 @@
 		content="Full-stack engineer building AI-grounded products end to end."
 	/>
 	<meta property="og:url" content="https://richardlitang.github.io/" />
-	<meta property="og:image" />
+	<meta property="og:image" content="https://richardlitang.github.io/og.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="https://richardlitang.github.io/og.png" />
 </svelte:head>
 
 <div class="home">
@@ -41,14 +43,6 @@
 
 <style>
 	.home {
-		background-color: var(--bg_0);
-		border-bottom-left-radius: 2rem;
-		border-bottom-right-radius: 2rem;
-	}
-
-	.textured {
-		background-image: radial-gradient(black 0.5px, transparent 0px);
-		background-size: 30px 30px;
-		background-position: 0 0, 15px 15px;
+		background-color: var(--paper);
 	}
 </style>

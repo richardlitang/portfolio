@@ -1,10 +1,14 @@
 <script>
-	import '@fontsource/italiana';
-	import '@fontsource/cormorant';
-	import '@fontsource/poppins';
-	import '@fontsource/raleway';
+	import '@fontsource/bricolage-grotesque/600.css';
+	import '@fontsource/bricolage-grotesque/700.css';
+	import '@fontsource/ibm-plex-sans/400.css';
+	import '@fontsource/ibm-plex-sans/500.css';
+	import '@fontsource/ibm-plex-mono/400.css';
+	import '@fontsource/ibm-plex-mono/500.css';
+	import Nav from '$lib/components/Nav.svelte';
 </script>
 
+<Nav />
 <main id="main">
 	<slot />
 	<footer>
@@ -13,8 +17,8 @@
 			<a
 				target="_blank"
 				rel="noreferrer"
-				href="https://github.com/richardlitang/richardlitang.github.io">open source.</a
-			>
+				href="https://github.com/richardlitang/richardlitang.github.io">open source</a
+			>.
 		</p>
 	</footer>
 </main>
@@ -23,30 +27,24 @@
 	main {
 		margin: 0 auto;
 		overflow: hidden;
-		background-color: var(--bg_1);
+		background-color: var(--paper);
 	}
 
 	footer {
 		text-align: center;
-		color: var(--bg_2);
-		padding: 1rem;
+		color: var(--pine-ink-2);
+		background: var(--pine);
+		padding: 1.25rem 1rem 1.5rem;
 	}
 
 	footer p {
-		font-family: var(--font--heading);
-		font-size: var(--font-sm);
-		max-width: 20em;
+		font-family: var(--font--mono);
+		font-size: var(--font-xs);
 		margin: 0 auto;
 	}
 
 	footer p a {
 		color: inherit;
 		text-decoration: underline;
-	}
-
-	@media (min-width: 680px) {
-		footer p {
-			max-width: none;
-		}
 	}
 </style>

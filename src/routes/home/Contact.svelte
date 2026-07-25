@@ -1,59 +1,85 @@
 <script>
 	import InView from '$lib/components/InView.svelte';
 	import Section from '$lib/components/Section.svelte';
-	import Socials from '$lib/components/Socials.svelte';
 </script>
 
-<Section --padding="6rem" --bgColor="var(--bg_1)">
-	<div class="flex">
-		<div class="flex-item">
-			<InView>
-				<p class="section-title">That's all for now</p>
-				<a href="mailto:richardjasonlitang@gmail.com"><button> Say hello!</button></a>
-			</InView>
-		</div>
+<Section id="contact" class="on-dark" --bgColor="var(--pine)">
+	<div class="contact">
+		<InView>
+			<p class="eyebrow">contact</p>
+			<p class="section-title">Got a rough problem?</p>
+			<p class="sub">
+				I'm open to senior software engineering roles in SaaS and AI-enabled products. The messier
+				the workflow, the better.
+			</p>
+			<div class="actions">
+				<a class="cta" href="mailto:richardjasonlitang@gmail.com">Email me</a>
+				<a class="alt" href="https://github.com/richardlitang" target="_blank" rel="noreferrer"
+					>github ↗</a
+				>
+				<a class="alt" href="https://linkedin.com/in/richardlitang" target="_blank" rel="noreferrer"
+					>linkedin ↗</a
+				>
+			</div>
+		</InView>
 	</div>
 </Section>
-<InView>
-	<div class="socials-footer">
-		<Socials --bottom="0" />
-	</div>
-</InView>
 
 <style>
-	.flex {
-		margin: 4rem auto;
-		display: flex;
-		flex-flow: column;
+	.contact {
+		color: var(--pine-ink);
+		text-align: left;
+		max-width: 44rem;
 	}
 
-	.flex-item {
-		margin: 0 auto;
-		max-width: 80vw;
+	.section-title {
+		color: var(--pine-ink);
+		margin-bottom: 1rem;
 	}
 
-	button {
+	.sub {
 		font-size: var(--font-md);
-		margin: calc(1vw + 2rem) auto;
-		color: var(--bg_0);
+		color: var(--pine-ink-2);
+		line-height: 1.7;
+		max-width: 36em;
+		margin-bottom: 2.25rem;
 	}
 
-	button:hover {
-		scale: 1.01;
+	.actions {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+		flex-wrap: wrap;
 	}
 
-	a {
-		color: inherit;
+	.cta {
+		display: inline-flex;
+		align-items: center;
+		background: var(--amber);
+		color: var(--ink);
+		font-family: var(--font--body);
+		font-weight: 500;
+		font-size: var(--font-sm);
+		padding: 0.8rem 1.6rem;
+		border-radius: var(--radius-sm);
 		text-decoration: none;
+		transition: transform 0.15s ease;
 	}
 
-	.socials-footer {
-		visibility: hidden;
+	.cta:hover {
+		transform: translateY(-2px);
 	}
 
-	@media (min-width: 680px) {
-		.socials-footer {
-			visibility: visible;
-		}
+	.alt {
+		font-family: var(--font--mono);
+		font-size: var(--font-xs);
+		color: var(--pine-ink);
+		text-decoration: none;
+		border-bottom: 1px solid var(--amber);
+		padding-bottom: 1px;
+	}
+
+	.alt:hover {
+		color: var(--amber);
 	}
 </style>
