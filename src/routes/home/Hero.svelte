@@ -15,11 +15,11 @@
 		<dl class="strip">
 			<div class="readout">
 				<dt>status</dt>
-				<dd>open to senior roles</dd>
+				<dd>open to mid–senior roles</dd>
 			</div>
 			<div class="readout">
 				<dt>focus</dt>
-				<dd>SaaS · AI-enabled products</dd>
+				<dd>full-stack product engineering · AI</dd>
 			</div>
 			<div class="readout">
 				<dt>links</dt>

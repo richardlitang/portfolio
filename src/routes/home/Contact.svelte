@@ -9,8 +9,8 @@
 			<p class="eyebrow">contact</p>
 			<p class="section-title">Got a rough problem?</p>
 			<p class="sub">
-				I'm open to senior software engineering roles in SaaS and AI-enabled products. The messier
-				the workflow, the better.
+				I'm open to mid-to-senior software engineering roles. SaaS and AI products are home turf,
+				but any messy workflow is fair game.
 			</p>
 			<div class="actions">
 				<a class="cta" href="mailto:richardjasonlitang@gmail.com">Email me</a>
