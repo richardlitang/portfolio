@@ -83,7 +83,7 @@
 <Section id="builds">
 	<InView>
 		<p class="eyebrow">selected builds</p>
-		<p class="section-title">Built to prove a point.</p>
+		<p class="section-title">Built to learn.</p>
 	</InView>
 
 	<div class="flagships">
