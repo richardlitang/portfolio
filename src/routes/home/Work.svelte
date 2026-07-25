@@ -6,6 +6,7 @@
 	const roles = [
 		{
 			company: 'BuildPass',
+			url: 'https://www.buildpass.ai/us',
 			title: 'Software Engineer',
 			meta: 'Melbourne, AU (Remote) · Oct 2024 – Feb 2026',
 			tasks: [
@@ -19,6 +20,7 @@
 		},
 		{
 			company: 'Dashlabs.ai',
+			url: 'https://www.dashlabs.ai/',
 			title: 'Full Stack Engineer · YC W21',
 			meta: 'Manila, PH (Remote) · Mar 2022 – Sep 2024',
 			tasks: [
@@ -53,6 +55,9 @@
 						{/each}
 					</div>
 					<div class="work-box">
+						<a class="role-company" href={role.url} target="_blank" rel="noreferrer"
+							>{role.company} ↗</a
+						>
 						<p class="role-title">{role.title}</p>
 						<p class="role-meta">{role.meta}</p>
 						<div class="work-details">
@@ -98,6 +103,21 @@
 
 		border-radius: calc(0.5vw + 0.25rem);
 		border-top-left-radius: 0;
+	}
+
+	.role-company {
+		display: inline-block;
+		font-size: var(--font-sm);
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		color: var(--text_2);
+		text-decoration: none;
+		margin-bottom: 0.35rem;
+	}
+
+	.role-company:hover {
+		color: var(--bg_0);
+		text-decoration: underline;
 	}
 
 	.role-title {

@@ -1,6 +1,7 @@
 <script>
 	import { slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
+	import typewriter from '$lib/utils/typewriter';
 	import Socials from '$lib/components/Socials.svelte';
 
 	let ready = false;
@@ -14,9 +15,11 @@
 			<span class="hero-intro">Hi, it's</span>
 			<span class="hero-name">Richard</span>
 			<div class="hero-tagline">
-				<p>Full-stack engineer building AI-grounded products end to end</p>
+				<p class="js-typewriter" use:typewriter>
+					Full-stack engineer building AI-grounded products end to end
+				</p>
 			</div>
-			<span class="hero-location">Liège, Belgium</span>
+			<span class="hero-location">Belgium</span>
 		</div>
 	</div>
 	{#if ready}
@@ -70,6 +73,12 @@
 	.hero-tagline {
 		display: grid;
 		place-items: center;
+		min-height: 2.5em;
+	}
+
+	/* JS present: hide until the typewriter action reveals and types it in. */
+	:global(html:not(.no-js)) .js-typewriter {
+		visibility: hidden;
 	}
 	.hero-tagline p {
 		text-align: center;

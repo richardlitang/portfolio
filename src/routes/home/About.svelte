@@ -11,18 +11,28 @@
 		<div class="flex-item">
 			<InView>
 				<p>
-					I'm a full-stack engineer who ships production features end to end — from zero-to-one
-					builds to 10x performance work. Most recently at BuildPass (construction SaaS) and before
-					that Dashlabs.ai (YC W21 healthtech), I've owned modules across the stack and shipped real
-					AI features that hold up in production, not just demos.
+					I'm a full-stack software engineer working mainly in TypeScript, Node.js, React, and
+					PostgreSQL. I've shipped production software at a YC-backed healthtech startup
+					(Dashlabs.ai, W21) and a fast-growing construction-tech SaaS (BuildPass) — clinical lab
+					workflows, site operations, async pipelines, and AI features that hold up in production,
+					not just demos.
+				</p>
+			</InView>
+			<InView --delay="0.3s">
+				<p>
+					I'm strongest in the messy middle of product engineering: unclear workflows, operational
+					bottlenecks, and features that are technically “done” but still frustrating to use. Give
+					me a rough problem and I'll work out what actually matters, make pragmatic calls, and push
+					it through until it's genuinely usable.
 				</p>
 			</InView>
 			<InView --delay="0.6s">
 				<p>
-					I care about systems that stay reliable under load and interfaces that make complex
-					workflows feel simple. I started in a different control room: three years running a 24/7
-					power plant with a zero-shutdown record. That reliability mindset — real-time incident
-					response and root-cause discipline — is how I approach software.
+					Before software, I worked in the energy industry, promoted to shift supervisor within a
+					few years — where reliability, ownership, and clean handoffs mattered every shift. That
+					still shapes how I work: I take responsibility for ambiguous problems, coordinate across
+					moving parts, and make sure things hold up under real conditions. I'm based in Belgium,
+					open to software engineering roles in SaaS and AI-enabled products.
 				</p>
 			</InView>
 		</div>
