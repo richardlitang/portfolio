@@ -1,22 +1,27 @@
 <script>
 	import viewport from '../utils/useViewportAction';
 
-	$: showWork = false;
+	let inView = false;
 </script>
 
-<div use:viewport on:enterViewport={() => (showWork = true)}>
-	{#if showWork}
-		<div class="animated">
-			<slot />
-		</div>
-	{/if}
+<div class="animated" class:in-view={inView} use:viewport on:enterViewport={() => (inView = true)}>
+	<slot />
 </div>
 
 <style>
 	.animated {
 		opacity: 0;
+	}
+
+	.in-view {
 		animation: 3s lineUp ease-out forwards;
 		animation-delay: var(--delay, 0);
+	}
+
+	/* No JS (or no IntersectionObserver): render content immediately, no animation. */
+	:global(html.no-js) .animated {
+		opacity: 1;
+		animation: none;
 	}
 
 	@keyframes lineUp {

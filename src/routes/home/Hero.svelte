@@ -1,28 +1,20 @@
 <script>
-	import viewport from '../../lib/utils/useViewportAction';
-	import typewriter from '$lib/utils/typewriter';
-
 	import { slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import Socials from '$lib/components/Socials.svelte';
 
-	$: showText = false;
-	$: ready = false;
+	let ready = false;
 
 	onMount(() => (ready = true));
 </script>
 
 <section class="hero">
 	<div class="hero-contents">
-		<div class="hero-text" use:viewport on:enterViewport={() => (showText = true)}>
+		<div class="hero-text">
 			<span class="hero-intro">Hi, it's</span>
 			<span class="hero-name">Richard</span>
 			<div class="hero-tagline">
-				{#if showText}
-					<p transition:typewriter={{ speed: 1 }}>
-						Full-stack engineer building AI-grounded products end to end
-					</p>
-				{/if}
+				<p>Full-stack engineer building AI-grounded products end to end</p>
 			</div>
 			<span class="hero-location">Liège, Belgium</span>
 		</div>
