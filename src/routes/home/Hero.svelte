@@ -5,7 +5,7 @@
 <section class="hero">
 	<div class="inner">
 		<div class="hero-main">
-			<p class="eyebrow">shift log — Belgium</p>
+			<p class="eyebrow">based in Belgium</p>
 			<h1>Richard Litang<span class="mark">.</span></h1>
 			<p class="log js-typewriter" use:typewriter>
 				Full-stack engineer building AI-grounded products end to end
