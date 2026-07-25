@@ -26,7 +26,8 @@
 	.inner {
 		max-width: var(--container);
 		margin: 0 auto;
-		padding: 0.65rem clamp(1rem, 4vw, 2rem);
+		height: var(--nav-h);
+		padding: 0 clamp(1rem, 4vw, 2rem);
 		display: flex;
 		align-items: center;
 		gap: 1.5rem;

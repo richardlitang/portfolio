@@ -48,11 +48,12 @@
 	--radius: 10px;
 	--radius-sm: 6px;
 	--container: 72rem;
+	--nav-h: 3rem;
 }
 
 html {
 	scroll-behavior: smooth;
-	scroll-padding-top: 4.5rem;
+	scroll-padding-top: calc(var(--nav-h) + 1rem);
 }
 
 body {

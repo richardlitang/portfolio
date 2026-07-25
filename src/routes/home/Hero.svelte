@@ -39,7 +39,9 @@
 
 <style>
 	.hero {
-		min-height: calc(92vh - 3rem);
+		/* nav = --nav-h + 1px border */
+		min-height: calc(100vh - var(--nav-h) - 1px);
+		min-height: calc(100svh - var(--nav-h) - 1px);
 		display: flex;
 	}
 
