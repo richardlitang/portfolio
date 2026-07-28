@@ -1,65 +1,21 @@
 <script>
 	import InView from '$lib/components/InView.svelte';
 	import Section from '$lib/components/Section.svelte';
+	import { roleMeta } from '$lib/content';
 
-	import buildpassShot from './work/buildpass.png';
-	import dashlabsShot from './work/dashlabs.png';
+	/** @type {import('$lib/i18n').Dict['work']} */
+	export let t;
 
-	const roles = [
-		{
-			company: 'BuildPass',
-			url: 'https://www.buildpass.ai/us',
-			domain: 'buildpass.ai',
-			image: buildpassShot,
-			title: 'Software Engineer',
-			meta: 'Melbourne, AU (Remote) · Oct 2024 – Feb 2026',
-			tasks: [
-				'Led “Lighthouse,” a dedicated delivery stream for urgent customer requests and market-localized workflows, shipping the workflow, dashboard, and configuration changes that supported the company’s US market launch.',
-				'Worked on AI-assisted product workflows across template generation, document analysis, scheduling, and action suggestions, using AI to improve existing operational flows.',
-				'Delivered and maintained the subcontractor Plant & Equipment module (registers, checklist linking, multi-step review workflows), enabling hundreds of construction companies and their subcontractors to self-manage equipment.',
-				'Drove the Photos Uplift project from design to implementation: moved heavy photo exports to async background jobs and rebuilt the UX with drag-and-drop folder organization, annotations, conversation threads, and metadata stamping.',
-				'Improved platform reliability and performance by optimizing React forms, tuning GraphQL queries and caching, replacing slow server-fetched translations with build-time bundling, extending Sentry instrumentation to critical paths, and eliminating cascading API retry loops.',
-				'Helped raise team velocity by onboarding engineers and pair programming to unblock peers; served as a domain expert across multiple modules while contributing 200+ shipped fixes, features, and improvements.',
-				'Won the company hackathon leading a cross-functional team: an AI-assisted bulk import prototype that mapped customer spreadsheet data to internal schemas, cutting setup work from hours to minutes.'
-			]
-		},
-		{
-			company: 'Dashlabs.ai',
-			url: 'https://www.dashlabs.ai/',
-			domain: 'dashlabs.ai',
-			image: dashlabsShot,
-			title: 'Full Stack Software Engineer · YC W21',
-			meta: 'Manila, PH (Remote) · Mar 2022 – Sep 2024',
-			tasks: [
-				'Owned the EHR/EMR modules for patient result entry, patient information intake, the patient portal, and B2B client portals; contributed across the platform including dynamic result certificates, appointments, the POS system, and auth.',
-				'Built a fully integrated patient queue management system from zero to one, streamlining laboratory operations, reducing patient wait times, and unlocking a new B2B revenue stream.',
-				'Reduced backend load by adding caching to critical code paths, offloading heavy operations to background job queues, tuning MongoDB schemas and indexes, and optimizing high-volume queries — enabling a database tier downgrade that cut infrastructure costs.',
-				'Migrated the platform’s search workflows to MongoDB Atlas Search, improving search relevance and scalability while reducing pressure on primary database queries.',
-				'Refactored core APIs supporting high-volume clinical laboratory workflows, removing execution bottlenecks and improving throughput by up to 10x during peak operational hours.'
-			]
-		},
-		{
-			company: 'THPAL',
-			title: 'Shift Supervisor, Power Plant Operations',
-			meta: 'THPAL Nickel Corporation · Philippines · Feb 2017 – Nov 2021',
-			tasks: [
-				'Led a shift team of engineers and operators in a 24/7 continuous-process power plant, maintaining a zero-shutdown record for 3 years through real-time incident response, root-cause analysis, and disciplined operational handoffs.',
-				'Drove preventive system improvements, troubleshot complex operational problems, and standardized shift procedures adopted across operating teams.',
-				'Troubleshot systems and issues across water treatment, the steam turbine generator, the boiler, and the coal handling system.',
-				'Trained juniors in operations.',
-				'Delivered daily reports for the power station unit (PSU) section.'
-			]
-		}
-	];
+	$: roles = roleMeta.map((meta, i) => ({ ...meta, ...t.roles[i] }));
 
-	let current = 'BuildPass';
+	let current = roleMeta[0].company;
 </script>
 
 <Section id="work" class="on-dark" --bgColor="var(--pine)">
 	<div class="work">
 		<InView>
-			<p class="eyebrow">work log</p>
-			<p class="section-title">Where I've shipped.</p>
+			<p class="eyebrow">{t.eyebrow}</p>
+			<p class="section-title">{t.title}</p>
 		</InView>
 		<InView>
 			<div class="tabs" role="tablist">

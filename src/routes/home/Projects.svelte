@@ -1,89 +1,19 @@
 <script>
 	import InView from '$lib/components/InView.svelte';
 	import Section from '$lib/components/Section.svelte';
+	import { flagshipMeta, moreMeta } from '$lib/content';
 
-	import support from './projects/support.png';
-	import scriptorium from './projects/scriptorium.png';
-	import churn from './projects/churn.png';
-	import stackhunt from './projects/stackhunt.png';
-	import bound from './projects/bound.png';
+	/** @type {import('$lib/i18n').Dict['projects']} */
+	export let t;
 
-	const flagships = [
-		{
-			title: 'ChurnAdapter',
-			image: churn,
-			blurb:
-				'Trains a churn model on any customer table — and keeps the LLM out of the prediction.',
-			highlights: [
-				'The LLM works only at the semantic boundary, mapping arbitrary columns onto a standard feature contract.',
-				'Prediction stays classical ML: XGBoost per dataset, SHAP explanations, held-out validation.',
-				'One pipeline ingests structurally different tables with zero hand-written column mappings.'
-			],
-			tags: ['Python', 'FastAPI', 'XGBoost', 'SHAP', 'LLM'],
-			repo: 'https://github.com/richardlitang/churn-adapter',
-			live: null
-		},
-		{
-			title: 'Scriptorium',
-			image: scriptorium,
-			blurb: 'A local-first video studio: story in, narrated and rendered video out.',
-			highlights: [
-				'Multi-surface system — Studio web app, CLI, MCP server, provider adapters, shared Zod schemas.',
-				'AI turns a story into a structured production plan; narration runs locally, Remotion renders.',
-				'Guarded by a full quality gate and a deterministic portfolio proof.'
-			],
-			tags: ['TypeScript', 'MCP', 'Zod', 'Remotion', 'CLI'],
-			repo: 'https://github.com/richardlitang/scriptorium-video',
-			live: null
-		}
-	];
-
-	const more = [
-		{
-			title: 'Support Copilot',
-			image: support,
-			oneliner: 'Support investigations where every claim is cited — or routed to a human.',
-			highlights: [
-				'A real RAG pipeline over uploaded docs: dense retrieval, literal candidate expansion, optional reranking.',
-				'Deterministic routing between docs-only, docs-plus-context, and human-review modes.',
-				'AI fallibility is a first-class needs_human_review state; ships with ADRs, a threat model, and a verify gate.'
-			],
-			tags: ['Next.js', 'TypeScript', 'RAG', 'pgvector'],
-			repo: 'https://github.com/richardlitang/support-copilot',
-			live: null
-		},
-		{
-			title: 'StackHunt',
-			image: stackhunt,
-			oneliner: 'A programmatic-SEO site researched and published by an agent.',
-			highlights: [
-				'A "Hunter Agent" autonomously researches tools, analyzes reviews, and publishes structured comparisons.',
-				'Semantic search over the catalog via pgvector; invisible Turnstile for bot protection.'
-			],
-			tags: ['Astro', 'React', 'Supabase', 'Gemini'],
-			repo: 'https://github.com/richardlitang/stackhunt',
-			live: 'https://stackhunt.io'
-		},
-		{
-			title: 'Bound',
-			image: bound,
-			imgPos: 'center left',
-			oneliner: 'A Chrome extension that binds every new tab to one commitment.',
-			highlights: [
-				'Every new tab shows the single task you are bound to, turning the drift moment into a refocus.',
-				'A capture-to-"Next up" flow keeps planning fast without breaking the current commitment.'
-			],
-			tags: ['TypeScript', 'Chrome MV3', 'Vite'],
-			repo: null,
-			live: null
-		}
-	];
+	$: flagships = flagshipMeta.map((meta, i) => ({ ...meta, ...t.flagships[i] }));
+	$: more = moreMeta.map((meta, i) => ({ ...meta, ...t.more[i] }));
 </script>
 
 <Section id="builds">
 	<InView>
-		<p class="eyebrow">selected builds</p>
-		<p class="section-title">Built to learn.</p>
+		<p class="eyebrow">{t.eyebrow}</p>
+		<p class="section-title">{t.title}</p>
 	</InView>
 
 	<div class="flagships">
@@ -97,8 +27,8 @@
 						<div class="head">
 							<h3>{title}</h3>
 							<div class="links">
-								{#if live}<a href={live} target="_blank" rel="noreferrer">live ↗</a>{/if}
-								{#if repo}<a href={repo} target="_blank" rel="noreferrer">code ↗</a>{/if}
+								{#if live}<a href={live} target="_blank" rel="noreferrer">{t.live} ↗</a>{/if}
+								{#if repo}<a href={repo} target="_blank" rel="noreferrer">{t.code} ↗</a>{/if}
 							</div>
 						</div>
 						<p class="blurb">{blurb}</p>
@@ -115,7 +45,7 @@
 	</div>
 
 	<InView>
-		<p class="more-label">more builds</p>
+		<p class="more-label">{t.moreLabel}</p>
 	</InView>
 	<div class="rows">
 		{#each more as { title, image, imgPos, oneliner, highlights, tags, repo, live }, i}
@@ -144,8 +74,8 @@
 						<p class="row-foot">
 							<span class="tags">{tags.join(' · ')}</span>
 							<span class="links">
-								{#if live}<a href={live} target="_blank" rel="noreferrer">live ↗</a>{/if}
-								{#if repo}<a href={repo} target="_blank" rel="noreferrer">code ↗</a>{/if}
+								{#if live}<a href={live} target="_blank" rel="noreferrer">{t.live} ↗</a>{/if}
+								{#if repo}<a href={repo} target="_blank" rel="noreferrer">{t.code} ↗</a>{/if}
 							</span>
 						</p>
 					</div>

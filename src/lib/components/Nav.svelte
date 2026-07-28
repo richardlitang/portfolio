@@ -1,14 +1,36 @@
+<script>
+	import { locales, localePath } from '$lib/content';
+
+	/** @type {import('$lib/i18n').Dict['nav']} */
+	export let t;
+	/** @type {import('$lib/content').Locale} */
+	export let lang;
+</script>
+
 <nav>
 	<div class="inner">
-		<a class="brand" href="#main">richardlitang</a>
+		<a class="brand" href={localePath[lang]}>richardlitang</a>
 		<ul class="links">
-			<li><a href="#about">about</a></li>
-			<li><a href="#work">work</a></li>
-			<li><a href="#builds">builds</a></li>
-			<li><a href="#stack">stack</a></li>
-			<li><a href="#contact">contact</a></li>
+			<li><a href="#about">{t.about}</a></li>
+			<li><a href="#work">{t.work}</a></li>
+			<li><a href="#builds">{t.builds}</a></li>
+			<li><a href="#stack">{t.stack}</a></li>
+			<li><a href="#contact">{t.contact}</a></li>
 		</ul>
-		<span class="status"><span class="dot" /> open to roles</span>
+		<span class="status"><span class="dot" /> {t.status}</span>
+		<ul class="langs" aria-label="Language">
+			{#each locales as code}
+				<li>
+					<a
+						href={localePath[code]}
+						class:current={code === lang}
+						hreflang={code}
+						data-sveltekit-reload
+						aria-current={code === lang ? 'true' : undefined}>{code}</a
+					>
+				</li>
+			{/each}
+		</ul>
 	</div>
 </nav>
 
@@ -30,7 +52,7 @@
 		padding: 0 clamp(1rem, 4vw, 2rem);
 		display: flex;
 		align-items: center;
-		gap: 1.5rem;
+		gap: 1.25rem;
 		font-family: var(--font--mono);
 		font-size: var(--font-xs);
 	}
@@ -63,8 +85,7 @@
 	}
 
 	.status {
-		margin-left: auto;
-		display: flex;
+		display: none;
 		align-items: center;
 		gap: 0.45rem;
 		color: var(--ink-2);
@@ -77,6 +98,30 @@
 		border-radius: 50%;
 		background: var(--amber);
 		animation: pulse 2.4s ease-in-out infinite;
+	}
+
+	.langs {
+		display: flex;
+		list-style: none;
+		margin: 0 0 0 auto;
+		padding: 0;
+		gap: 0.5rem;
+		text-transform: uppercase;
+	}
+
+	.langs a {
+		color: var(--ink-2);
+		padding: 0.15rem 0.1rem;
+		transition: color 0.15s ease;
+	}
+
+	.langs a:hover {
+		color: var(--ink);
+	}
+
+	.langs a.current {
+		color: var(--ink);
+		border-bottom: 1px solid var(--amber);
 	}
 
 	@keyframes pulse {
@@ -94,7 +139,13 @@
 			display: flex;
 		}
 		.status {
+			display: flex;
+			margin-left: auto;
+		}
+		.langs {
 			margin-left: 0;
+			padding-left: 1.25rem;
+			border-left: 1px solid var(--line);
 		}
 	}
 </style>

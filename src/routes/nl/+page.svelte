@@ -3,4 +3,4 @@
 	import { dicts } from '$lib/i18n';
 </script>
 
-<Home t={dicts.en} lang="en" />
+<Home t={dicts.nl} lang="nl" />

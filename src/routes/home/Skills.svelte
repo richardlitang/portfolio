@@ -1,71 +1,24 @@
 <script>
 	import Section from '$lib/components/Section.svelte';
 	import InView from '$lib/components/InView.svelte';
+	import { skillItems } from '$lib/content';
 
-	const groups = [
-		{ label: 'languages', items: ['TypeScript', 'JavaScript', 'SQL', 'Python'] },
-		{
-			label: 'frontend',
-			items: [
-				'React',
-				'Next.js',
-				'React Native / Expo',
-				'Svelte',
-				'Tailwind CSS',
-				'shadcn/ui',
-				'MUI',
-				'Ant Design'
-			]
-		},
-		{
-			label: 'backend & data',
-			items: [
-				'Node.js',
-				'Express',
-				'FastAPI',
-				'GraphQL',
-				'REST',
-				'PostgreSQL',
-				'MongoDB',
-				'Prisma',
-				'Redis',
-				'Supabase',
-				'pgvector'
-			]
-		},
-		{
-			label: 'ai engineering',
-			items: [
-				'OpenAI',
-				'Anthropic',
-				'Vercel AI SDK',
-				'RAG',
-				'Embeddings',
-				'LLM evals',
-				'Promptfoo',
-				'MCP'
-			]
-		},
-		{ label: 'cloud & infra', items: ['AWS', 'Docker', 'Vercel', 'Inngest'] },
-		{
-			label: 'testing & observability',
-			items: ['Jest', 'Vitest', 'Playwright', 'Checkly', 'Sentry', 'Datadog', 'PostHog']
-		}
-	];
+	/** @type {import('$lib/i18n').Dict['skills']} */
+	export let t;
 </script>
 
 <Section id="stack" --bgColor="var(--paper-2)">
 	<div class="stack">
 		<InView>
-			<p class="eyebrow">stack</p>
-			<p class="section-title">Working set.</p>
+			<p class="eyebrow">{t.eyebrow}</p>
+			<p class="section-title">{t.title}</p>
 		</InView>
 		<div class="sheet">
-			{#each groups as { label, items }, i}
+			{#each t.labels as label, i}
 				<InView --delay={`${0.06 * i}s`}>
 					<div class="spec">
 						<p class="spec-label">{label}</p>
-						<p class="spec-items">{items.join(' · ')}</p>
+						<p class="spec-items">{skillItems[i].join(' · ')}</p>
 					</div>
 				</InView>
 			{/each}

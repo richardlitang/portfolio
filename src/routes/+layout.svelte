@@ -5,20 +5,27 @@
 	import '@fontsource/ibm-plex-sans/500.css';
 	import '@fontsource/ibm-plex-mono/400.css';
 	import '@fontsource/ibm-plex-mono/500.css';
+	import { page } from '$app/stores';
+	import { browser } from '$app/environment';
 	import Nav from '$lib/components/Nav.svelte';
+	import { social, localeFromPath } from '$lib/content';
+	import { dicts } from '$lib/i18n';
+
+	$: lang = localeFromPath($page.url.pathname);
+	$: t = dicts[lang];
+
+	// Locale links force a full load, but keep the attribute honest for any
+	// client-side navigation that still reaches here.
+	$: if (browser) document.documentElement.lang = lang;
 </script>
 
-<Nav />
+<Nav t={t.nav} {lang} />
 <main id="main">
 	<slot />
 	<footer>
 		<p>
-			Built by Richard Litang. It's free and
-			<a
-				target="_blank"
-				rel="noreferrer"
-				href="https://github.com/richardlitang/richardlitang.github.io">open source</a
-			>.
+			{t.footer.built}
+			<a target="_blank" rel="noreferrer" href={social.repo}>{t.footer.openSource}</a>.
 		</p>
 	</footer>
 </main>

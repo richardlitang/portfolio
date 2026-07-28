@@ -1,36 +1,36 @@
 <script>
 	import typewriter from '$lib/utils/typewriter';
+	import { social } from '$lib/content';
+
+	/** @type {import('$lib/i18n').Dict['hero']} */
+	export let t;
 </script>
 
 <section class="hero">
 	<div class="inner">
 		<div class="hero-main">
-			<p class="eyebrow">based in Belgium</p>
+			<p class="eyebrow">{t.eyebrow}</p>
 			<h1>Richard Litang<span class="mark">.</span></h1>
-			<p class="log js-typewriter" use:typewriter>
-				Full-stack engineer building AI-grounded products end to end
-			</p>
+			<p class="log js-typewriter" use:typewriter>{t.log}</p>
 		</div>
 
 		<dl class="strip">
 			<div class="readout">
-				<dt>status</dt>
-				<dd>open to mid–senior roles</dd>
+				<dt>{t.statusLabel}</dt>
+				<dd>{t.statusValue}</dd>
 			</div>
 			<div class="readout">
-				<dt>focus</dt>
-				<dd>full-stack product engineering · AI</dd>
+				<dt>{t.focusLabel}</dt>
+				<dd>{t.focusValue}</dd>
 			</div>
 			<div class="readout">
-				<dt>links</dt>
+				<dt>{t.linksLabel}</dt>
 				<dd>
-					<a href="https://github.com/richardlitang" target="_blank" rel="noreferrer">github</a>
+					<a href={social.github} target="_blank" rel="noreferrer">{t.github}</a>
 					<span class="sep">/</span>
-					<a href="https://linkedin.com/in/richardlitang" target="_blank" rel="noreferrer"
-						>linkedin</a
-					>
+					<a href={social.linkedin} target="_blank" rel="noreferrer">{t.linkedin}</a>
 					<span class="sep">/</span>
-					<a href="mailto:richardjasonlitang@gmail.com">email</a>
+					<a href="mailto:{social.email}">{t.email}</a>
 				</dd>
 			</div>
 		</dl>

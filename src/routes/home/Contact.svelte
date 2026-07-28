@@ -1,25 +1,22 @@
 <script>
 	import InView from '$lib/components/InView.svelte';
 	import Section from '$lib/components/Section.svelte';
+	import { social } from '$lib/content';
+
+	/** @type {import('$lib/i18n').Dict['contact']} */
+	export let t;
 </script>
 
 <Section id="contact" class="on-dark" --bgColor="var(--pine)">
 	<div class="contact">
 		<InView>
-			<p class="eyebrow">contact</p>
-			<p class="section-title">Got a rough problem?</p>
-			<p class="sub">
-				I'm open to mid-to-senior software engineering roles. SaaS and AI products are home turf,
-				but any messy workflow is fair game.
-			</p>
+			<p class="eyebrow">{t.eyebrow}</p>
+			<p class="section-title">{t.title}</p>
+			<p class="sub">{t.sub}</p>
 			<div class="actions">
-				<a class="cta" href="mailto:richardjasonlitang@gmail.com">Email me</a>
-				<a class="alt" href="https://github.com/richardlitang" target="_blank" rel="noreferrer"
-					>github ↗</a
-				>
-				<a class="alt" href="https://linkedin.com/in/richardlitang" target="_blank" rel="noreferrer"
-					>linkedin ↗</a
-				>
+				<a class="cta" href="mailto:{social.email}">{t.cta}</a>
+				<a class="alt" href={social.github} target="_blank" rel="noreferrer">github ↗</a>
+				<a class="alt" href={social.linkedin} target="_blank" rel="noreferrer">linkedin ↗</a>
 			</div>
 		</InView>
 	</div>
