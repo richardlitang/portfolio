@@ -22,6 +22,7 @@
 			items: [
 				'Node.js',
 				'Express',
+				'FastAPI',
 				'GraphQL',
 				'REST',
 				'PostgreSQL',

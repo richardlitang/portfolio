@@ -37,6 +37,18 @@
 				'Migrated the platform’s search workflows to MongoDB Atlas Search, improving search relevance and scalability while reducing pressure on primary database queries.',
 				'Refactored core APIs supporting high-volume clinical laboratory workflows, removing execution bottlenecks and improving throughput by up to 10x during peak operational hours.'
 			]
+		},
+		{
+			company: 'THPAL',
+			title: 'Shift Supervisor, Power Plant Operations',
+			meta: 'THPAL Nickel Corporation · Philippines · Feb 2017 – Nov 2021',
+			tasks: [
+				'Led a shift team of engineers and operators in a 24/7 continuous-process power plant, maintaining a zero-shutdown record for 3 years through real-time incident response, root-cause analysis, and disciplined operational handoffs.',
+				'Drove preventive system improvements, troubleshot complex operational problems, and standardized shift procedures adopted across operating teams.',
+				'Troubleshot systems and issues across water treatment, the steam turbine generator, the boiler, and the coal handling system.',
+				'Trained juniors in operations.',
+				'Delivered daily reports for the power station unit (PSU) section.'
+			]
 		}
 	];
 
@@ -65,7 +77,7 @@
 			<!-- Every role is rendered so the full history is in the served HTML
 			     (crawlers, link previews, no-JS). JS only decides which is shown. -->
 			{#each roles as role}
-				<div class="panel" class:is-active={current === role.company}>
+				<div class="panel" class:is-active={current === role.company} class:is-solo={!role.image}>
 					<div class="detail">
 						<p class="panel-company">{role.company}</p>
 						<p class="role-title">{role.title}</p>
@@ -77,20 +89,14 @@
 						</ul>
 					</div>
 
-					<a class="site-card" href={role.url} target="_blank" rel="noreferrer">
-						<img src={role.image} alt={`${role.company} website`} loading="lazy" />
-						<span class="caption">{role.domain} ↗</span>
-					</a>
+					{#if role.image}
+						<a class="site-card" href={role.url} target="_blank" rel="noreferrer">
+							<img src={role.image} alt={`${role.company} website`} loading="lazy" />
+							<span class="caption">{role.domain} ↗</span>
+						</a>
+					{/if}
 				</div>
 			{/each}
-		</InView>
-		<InView>
-			<p class="prior">
-				Earlier: nearly five years in power plant operations (2017–2021), leading a shift team of
-				engineers and operators in a 24/7 continuous-process plant — with a three-year zero-shutdown
-				record built on real-time incident response, root-cause analysis, and disciplined handoffs.
-				Where the reliability habits started.
-			</p>
 		</InView>
 	</div>
 </Section>
@@ -245,19 +251,17 @@
 		color: var(--amber);
 	}
 
-	.prior {
-		margin-top: clamp(2rem, 4vw, 3rem);
-		padding-top: 1.25rem;
-		border-top: 1px solid var(--line-dark);
-		max-width: 46em;
-		font-size: var(--font-sm);
-		color: var(--pine-ink-2);
-		line-height: 1.7;
-	}
-
 	@media (min-width: 900px) {
 		.panel {
 			grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+		}
+		/* Roles without a company screenshot run full width, but the text
+		   still stops at a readable measure. */
+		.panel.is-solo {
+			grid-template-columns: minmax(0, 9fr);
+		}
+		.panel.is-solo .detail {
+			max-width: 60em;
 		}
 		.site-card {
 			position: sticky;
