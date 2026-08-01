@@ -104,6 +104,14 @@ const en = {
 		],
 		more: [
 			{
+				oneliner: 'Rental intelligence for finding homes with fewer surprises.',
+				highlights: [
+					'Translates a natural-language search brief into a structured rental search.',
+					'Ranks listings and exposes the evidence behind strong, possible, confirmed, and rejected outcomes.',
+					'Keeps saved homes local to the browser by default.'
+				]
+			},
+			{
 				oneliner: 'Support investigations where every claim is cited — or routed to a human.',
 				highlights: [
 					'A real RAG pipeline over uploaded docs: dense retrieval, literal candidate expansion, optional reranking.',

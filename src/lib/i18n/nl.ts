@@ -106,6 +106,14 @@ const nl: Dict = {
 		],
 		more: [
 			{
+				oneliner: 'Huurintelligentie om woningen te vinden met minder verrassingen.',
+				highlights: [
+					'Zet een zoekopdracht in natuurlijke taal om in een gestructureerde zoektocht naar huurwoningen.',
+					'Rangschikt woningen en toont het bewijs achter sterke, mogelijke, bevestigde en afgewezen resultaten.',
+					'Bewaart opgeslagen woningen standaard lokaal in de browser.'
+				]
+			},
+			{
 				oneliner: 'Supportonderzoek waarbij elke bewering een bron heeft — of naar een mens gaat.',
 				highlights: [
 					'Een echte RAG-pipeline over geüploade documenten: dense retrieval, letterlijke kandidaatuitbreiding, optionele reranking.',

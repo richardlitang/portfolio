@@ -9,6 +9,7 @@ import scriptorium from '../routes/home/projects/scriptorium.png';
 import churn from '../routes/home/projects/churn.png';
 import stackhunt from '../routes/home/projects/stackhunt.png';
 import bound from '../routes/home/projects/bound.png';
+import fitfinder from '../routes/home/projects/fitfinder.png';
 
 export const roleMeta = [
 	{
@@ -49,6 +50,14 @@ export const flagshipMeta = [
 ];
 
 export const moreMeta = [
+	{
+		title: 'FitFinder',
+		image: fitfinder,
+		imgPos: null,
+		tags: ['Rental intelligence', 'Search workflows', 'Evidence review'],
+		repo: null,
+		live: null
+	},
 	{
 		title: 'Support Copilot',
 		image: support,
