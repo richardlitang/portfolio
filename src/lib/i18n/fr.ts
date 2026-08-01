@@ -107,7 +107,8 @@ const fr: Dict = {
 		],
 		more: [
 			{
-				oneliner: 'Une intelligence locative pour trouver un logement avec moins de mauvaises surprises.',
+				oneliner:
+					'Une intelligence locative pour trouver un logement avec moins de mauvaises surprises.',
 				highlights: [
 					'Convertit une demande de recherche en langage naturel en recherche locative structurée.',
 					'Classe les annonces et expose les éléments justifiant les résultats forts, possibles, confirmés ou rejetés.',

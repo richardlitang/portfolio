@@ -23,9 +23,11 @@
 ### Task 1: Add the FitFinder screenshot asset
 
 **Files:**
+
 - Create: `src/routes/home/projects/fitfinder.png`
 
 **Interfaces:**
+
 - Produces: the image imported by `src/lib/content.ts` and rendered by the existing project-row component.
 
 - [ ] **Step 1: Copy the approved Desktop screenshot into the project asset directory**
@@ -50,9 +52,11 @@ git commit -m "feat(portfolio): add FitFinder project screenshot" -m "Use the ap
 ### Task 2: Add FitFinder to the shared project metadata
 
 **Files:**
+
 - Modify: `src/lib/content.ts`
 
 **Interfaces:**
+
 - Consumes: `src/routes/home/projects/fitfinder.png` from Task 1.
 - Produces: a `moreMeta` entry with the same `{ title, image, imgPos, tags, repo, live }` shape consumed by `src/routes/home/Projects.svelte`.
 
@@ -88,11 +92,13 @@ Expected: one new import and one new object; existing Support Copilot, StackHunt
 ### Task 3: Add localized FitFinder copy
 
 **Files:**
+
 - Modify: `src/lib/i18n/en.ts`
 - Modify: `src/lib/i18n/fr.ts`
 - Modify: `src/lib/i18n/nl.ts`
 
 **Interfaces:**
+
 - Consumes: the first `moreMeta` entry added in Task 2.
 - Produces: the first `projects.more` translation object in each locale, preserving the index-based merge in `src/routes/home/Projects.svelte`.
 
@@ -151,9 +157,11 @@ git commit -m "feat(portfolio): add FitFinder project entry" -m "Expose the scre
 ### Task 4: Run the portfolio verification gate
 
 **Files:**
+
 - Read: `package.json` scripts and generated build output.
 
 **Interfaces:**
+
 - Consumes: the complete FitFinder asset, metadata, and locale changes from Tasks 1–3.
 - Produces: verified type safety, formatting/lint status, and production build output.
 
@@ -180,4 +188,3 @@ Expected: command exits 0 and produces the static SvelteKit build.
 Run: `git status --short --branch && git log -3 --oneline`
 
 Expected: the working tree is clean, the two implementation commits are present, and no generated artifacts are staged unexpectedly.
-

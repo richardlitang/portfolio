@@ -50,4 +50,3 @@ The existing project row remains the interaction surface. The screenshot thumbna
 - `npm run lint`
 - `npm run build`
 - Confirm the new image is tracked and all three locale data arrays contain the new FitFinder entry.
-
